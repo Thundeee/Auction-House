@@ -1,0 +1,25 @@
+{
+  "name": "auction-house",
+  "version": "0.0.1",
+  "description": "Auction House using noroff API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "sass src/scss:dist/css",
+    "devMode": "sass --watch src/scss:dist/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thundeee/Auction-House.git"
+  },
+  "author": "Asbjørn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thundeee/Auction-House/issues"
+  },
+  "homepage": "https://github.com/Thundeee/Auction-House#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "sass": "^1.56.1"
+  }
+}
