@@ -1,11 +1,12 @@
+import {POST} from "../requests.js"
 
-import apiUrl from "../constants.js"
+
 
 export async function bidListing(id, amount){
 
 
     try {
-        const response = await fetch(`${apiUrl}/listings/${id}`, {
+        const response = await POST(`${apiUrl}/listings/${id}`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -27,3 +28,30 @@ export async function bidListing(id, amount){
       }
 
 }
+
+/*
+export async function login(email, password){
+     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+
+    try {
+        const {json, response} = await POST({
+          url:"/auth/login",
+           body:{email, password}})
+        if (!response.ok) {
+          throw new Error();
+        }
+        if (json["accessToken"]) {
+          localStorage.setItem("accessToken", json.accessToken);
+          localStorage.setItem("username", json.name);
+          localStorage.setItem("credits", json.credits);
+
+          console.log("user hass logged in");
+        }
+          } catch (error) {
+        console.log(error);
+      }
+
+}
+
+
+*/

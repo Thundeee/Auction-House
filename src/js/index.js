@@ -16,7 +16,7 @@ calls.deleteListing(id)
 
 async function allTest() {
    await calls.login("test5199@noroff.no", "test5199")
-   calls.allListings()
+  // calls.allListings()
   // calls.singleListing("50a24ac5-f2a5-42b8-b959-0f9ffee35097")
  //calls.createListing("testAAA",  "test58212",  "",  "2022-11-30T19:00:00.000Z")
 //  calls.deleteListing("5f8f068e-fe54-46a3-8d78-c1d96ecafdfc")

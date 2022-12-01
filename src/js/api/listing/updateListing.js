@@ -1,5 +1,3 @@
-import apiUrl from "../constants.js"
-
 export async function updateListing(id, title, description, media){
 
 
@@ -17,7 +15,7 @@ export async function updateListing(id, title, description, media){
         const json = await response.json();
         console.log(json);
         console.log(response.ok);
-        if (response.ok !== true) {
+        if (!response.ok) {
           throw new Error();
         }
           } catch (error) {

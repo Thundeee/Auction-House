@@ -1,6 +1,3 @@
-
-import apiUrl from "../constants.js"
-
 export async function deleteListing(id){
 
 
