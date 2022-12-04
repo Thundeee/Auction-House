@@ -13,9 +13,8 @@ export async function deleteListing(id,) {
     });
     console.log(response.ok);
 
-     if (response.ok) {
-     console.log(`post ${id} deleted!`);
-       return;
+    if (!response.ok) {
+      throw new Error();
     }
 
   } catch (error) {
