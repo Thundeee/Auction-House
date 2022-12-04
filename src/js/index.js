@@ -10,18 +10,18 @@ calls.createListing(title, desc, [media], date)
 calls.deleteListing(id)
 */
 
-
+//TEST AH f4a647cc-95eb-49f9-bda7-24a6d6949dbc
 //calls.register("test5199" , "test5199@noroff.no", " test5199")
 
 
 async function allTest() {
    await calls.login("test5199@noroff.no", "test5199")
-  // calls.allListings()
-  // calls.singleListing("50a24ac5-f2a5-42b8-b959-0f9ffee35097")
- //calls.createListing("testAAA",  "test58212",  "",  "2022-11-30T19:00:00.000Z")
-//  calls.deleteListing("5f8f068e-fe54-46a3-8d78-c1d96ecafdfc")
-//calls.updateListing("9dd5c8e3-fd52-4114-ad25-fb99d90f4215", "TESTAAAA", "111", "")
-//calls.bidListing()
+  //calls.allListings()
+  calls.singleListing("3ffc6335-90b0-48e8-9cdf-05ce1fbfed10")
+// calls.createListing("AteAgfdsgfdsA",  "tAest582asddsdassa12",  ["https://i.imgur.com/111PbS5.jpeg"],  "2022-12-30T19:00:00.000Z");
+ //calls.deleteListing("73825c21-9f5c-4bdf-a6e7-6a4b49c7efd4")
+//calls.updateListing("3ffc6335-90b0-48e8-9cdf-05ce1fbfed10", "TESTAAAA", "111", "")
+//calls.bidListing("f4a647cc-95eb-49f9-bda7-24a6d6949dbc", 1)
 }
 
 allTest()
