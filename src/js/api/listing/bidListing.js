@@ -1,29 +1,28 @@
+import { POST } from "../requests.js";
+ 
+// BAD REQUEST
 
-import apiUrl from "../constants.js"
+export async function bidListing(id, amount) {
+ 
+  try {
+    const { json, response } = await POST({
+      url: `/listings/${id}/bids`,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: { amount },
+    });
+    console.log(json)
+    console.log(response.ok);
 
-export async function bidListing(id, amount){
+    if (response.ok) {
+      console.log(` ${amount} bidded on auciton ${id}!`);
+      // LEGG INN PROFIL UPDATE HER singleListing(localStorage.getItem("username"))
+      return;
+    }
 
-
-    try {
-        const response = await fetch(`${apiUrl}/listings/${id}`, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-          body: JSON.stringify({ amount }),
-
-            }
-    )
-        console.log(response);
-        
-        if (response.ok) {
-            console.log(` ${amount} bidded on auciton ${id}!`)
-        // LEGG INN PROFIL UPDATE HER singleListing(localStorage.getItem("username"))
-            return;
-        }
-        throw new Error();
-          } catch (error) {
-        console.log(error);
-      }
+  } catch (error) {
+    console.log(error);
+  }
 
 }
