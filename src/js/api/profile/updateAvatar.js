@@ -2,7 +2,7 @@ import { PUT } from "../requests.js";
 
 // GIVES GOOD RESPONSE BACK BUT AVATAR NOT UPDATED NOT SURE WHY MIGHT BE API ISSUES WHEN TESTING SINCE CANT LOGIN TO NEWLY REGISTERED ACCOUNTS EITHER
 export async function updateAvatar(media) {
- console.log(media)
+  console.log(media);
   try {
     const { json, response } = await PUT({
       url: `/profiles/${localStorage.getItem("username")}/media`,
@@ -10,7 +10,6 @@ export async function updateAvatar(media) {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: { media },
-
     });
     console.log(json);
     console.log(response.ok);
@@ -18,10 +17,8 @@ export async function updateAvatar(media) {
     if (!response.ok) {
       throw new Error();
     }
-console.log("test")
-
+    console.log("test");
   } catch (error) {
     console.log(error);
   }
-
 }

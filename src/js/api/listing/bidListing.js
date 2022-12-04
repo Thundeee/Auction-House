@@ -1,9 +1,8 @@
 import { POST } from "../requests.js";
- 
+
 // BAD REQUEST
 
 export async function bidListing(id, amount) {
- 
   try {
     const { json, response } = await POST({
       url: `/listings/${id}/bids`,
@@ -12,17 +11,15 @@ export async function bidListing(id, amount) {
       },
       body: { amount },
     });
-    console.log(json)
+    console.log(json);
     console.log(response.ok);
 
-    if (response.ok) {
-      console.log(` ${amount} bidded on auciton ${id}!`);
-      // LEGG INN PROFIL UPDATE HER singleListing(localStorage.getItem("username"))
-      return;
+    if (!response.ok) {
+      throw new Error();
     }
-
+    console.log(` ${amount} bidded on auciton ${id}!`);
+    return;
   } catch (error) {
     console.log(error);
   }
-
 }
