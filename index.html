@@ -1,20 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/css/index.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/css/stylesheet.css" />
+    <script
+      src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">    
     <title>Home - Bergen Auction House</title>
-</head>
-<body>
-    <p>test</p>
-    
+  </head>
+  <body>
+    <header class="bg-light sticky-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-3 p-2">
+            <img
+            class="img-fluid"
+              src="./assets/img/logo_placeholder.jpg"
+              width="100"
+              height="100"
+              alt="logo"
+            />
+          </div>
 
+          <div class="col-4 align-self-center">
+                <form role="search" class="col-12 text-white bg-black d-flex justify-content-between" style="opacity: .7;">
+              <input type="text" class="text-white col-11 bg-black border-0 outlineRemover p-2" placeholder="Search for an auction..." />
+                <i class="bi bi-search col-1 d-flex justify-content-end align-items-center pe-2"></i>
 
-    <script type="module" src="./src/js/index.js"></script>
+                </form>
 
-</body>
+          </div>
+          <div class="col-5 d-flex align-items-center">
+              <a href="create.html" class="col-4">
+                <button type="button" class="btn btn-success p-4">
+                  Create Listing
+                </button>
+              </a>
+              <a href="addFunds.html" class="col-4">
+                <p class="btn btn-success mb-0">WALLET: 1000</p>
+              </a>
+              
+                <img
+                class="img-fluid col-3"
+                  src="./assets/img/logo_placeholder.jpg"
+                  />
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="bg-primary">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-12">
+            <h1 class="text-white text-center mt-4">Bergen Auction House</h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 m-3">
+            <h5 class="text-white text-center">
+              Bergen Auction House
+              <br />
+              @2022
+            </h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/js/index.js" defer></script>
+  </body>
 </html>

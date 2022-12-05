@@ -11,7 +11,7 @@ calls.deleteListing(id)
 */
 
 //TEST AH f4a647cc-95eb-49f9-bda7-24a6d6949dbc
-//calls.register("test5198" , "test5198@noroff.no", " test5198", "https://i.imgur.com/111PbS5.jpeg")
+//calls.register("test5299" , "test5299@noroff.no", " test5299", "https://i.imgur.com/111PbS5.jpeg")
 
 async function allTest() {
   await calls.login("test5199@noroff.no", "test5199");
@@ -24,7 +24,7 @@ async function allTest() {
 
   //calls.singleProfile("test5199")
   //calls.listingsProfile("test5199")
-  //calls.updateAvatar("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
+  // calls.updateAvatar("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
 }
 
 allTest();

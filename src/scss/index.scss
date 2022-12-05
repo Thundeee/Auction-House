@@ -1,1 +1,28 @@
-@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+$primary: #431c91;
+$secondary: #DEB540;
+$success: #198754;
+$danger: #dc3545;
+$text: #000000;
+$light: #55329c;
+
+
+body {
+    font-family: 'Noto Sans', sans-serif !important;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif !important;
+}
+
+//$heading-font-family: 'Merriweather', serif;
+//$body-font-family: 'N1oto Sans', sans-serif;
+
+
+.outlineRemover
+{
+    outline:0px !important;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+

@@ -6,6 +6,7 @@ export async function login(email, password) {
       url: "/auth/login",
       body: { email, password },
     });
+    console.log(json)
     if (!response.ok) {
       throw new Error();
     }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "sass src/scss:dist/css",
-    "devMode": "sass --watch src/scss:dist/css"
+    "build": "sass src/scss/index.scss:dist/css/stylesheet.css",
+    "devMode": "sass --watch src/scss/index.scss:dist/css/stylesheet.css"
   },
   "repository": {
     "type": "git",
