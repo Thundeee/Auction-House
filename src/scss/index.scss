@@ -15,6 +15,14 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif !important;
 }
 
+
+@media (max-width: 767px) {
+    .logoSmall {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
 //$heading-font-family: 'Merriweather', serif;
 //$body-font-family: 'N1oto Sans', sans-serif;
 
