@@ -43,7 +43,7 @@
             <form
               role="search"
               class="col-12 text-white bg-black d-flex"
-              style="opacity: 0.7"
+              style="opacity: 0.7;"
             >
               <input
                 type="text"
@@ -60,127 +60,40 @@
           >
             <a href="create.html" class="">
               <button type="button" class="btn btn-success p-3 p-lg-4">
-                Create<br />
+                Create
+                <br />
                 Listing
               </button>
             </a>
             <a href="addFunds.html" class="">
-              <p class="btn btn-success mb-0" style="white-space: nowrap" id="wallet">
+              <p
+                class="btn btn-success mb-0"
+                style="white-space: nowrap;"
+                id="wallet"
+              >
                 WALLET: 0
               </p>
             </a>
-
+<div id="loginButtonDiv">
             <button
               type="button"
               class="btn btn-secondary p-3"
               data-bs-toggle="modal"
-              data-bs-target="#loginModal">Login</button>
+              data-bs-target="#loginModal"
+            >
+              Login
+            </button>
+          </div>
           </div>
         </div>
       </div>
     </header>
 
     <main class="bg-primary">
-
-
-
-
-
-
-
       <div class="container">
         <div class="row d-flex">
           <div class="col-12">
             <h1 class="text-white text-center mt-4">Bergen Auction House</h1>
-            <!-- Modal login -->
-
-            <div class="modal fade" id="loginModal" aria-hidden="true" aria-labelledby="loginModalLabel" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-
-                    <form class="loginForm">
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your Noroff email" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-                      </div>
-                      <button type="submit" class="btn btn-primary mt-2">Login</button>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <p class="errorResponseLogin text-danger text-center col-12"></p>
-                    <button class="btn btn-link float-end" data-bs-target="#registerModal2" data-bs-toggle="modal" data-bs-dismiss="modal">Don't have an account? Register here!</button>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-                        <!-- Modal register -->
-
-            <div class="modal fade" id="registerModal2" aria-hidden="true" aria-labelledby="registerModalLabel2" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel2">Register</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-
-                    <form class="registerForm">
-                      <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="registerUsername" placeholder="Enter your username" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Email</label>
-                        <input type="email" class="form-control" id="registerEmail" placeholder="Enter your Noroff email" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="username">Password</label>
-                        <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Avatar (Optional)</label>
-                        <input type="url" class="form-control" id="registerAvatar" placeholder="add a profile picture (must be a link)">
-                      </div>
-                      <button type="submit" class="btn btn-primary mt-2">Register</button>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <p class="errorResponseRegister text-danger text-center col-12"></p>
-                    <button class="btn btn-link float-end" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Already have an account? Login here!</button>
-
-                  </div>
-                </div>
-              </div>
-            </div>  
-            
-            <!-- Modal logout -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Click the button below to logout
-      </div>
-      <div class="modal-footer justify-content-start">
-        <button type="button" class="btn btn-primary">Logout</button>
-      </div>
-    </div>
-  </div>
-</div>
 
             <br />
             <br />
@@ -242,9 +155,9 @@
           </div>
         </div>
       </div>
-      <noscript
-      >Please enable javascript to view information on this site!</noscript
-    >
+      <noscript>
+        Please enable javascript to view information on this site!
+      </noscript>
     </main>
     <footer class="bg-light">
       <div class="container">
@@ -261,5 +174,191 @@
     </footer>
 
     <script type="module" src="./src/js/index.js" defer></script>
+
+
+                <!-- Modal login -->
+
+                <div
+                class="modal fade"
+                id="loginModal"
+                aria-hidden="true"
+                aria-labelledby="loginModalLabel"
+                tabindex="-1"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="loginForm">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="loginEmail"
+                            placeholder="Enter your Noroff email"
+                            autocomplete="email"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">
+                          Login
+                        </button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <p
+                        class="errorResponseLogin text-danger text-center col-12"
+                      ></p>
+                      <button
+                        class="btn btn-link float-end"
+                        data-bs-target="#registerModal2"
+                        data-bs-toggle="modal"
+                        data-bs-dismiss="modal"
+                      >
+                        Don't have an account? Register here!
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Modal register -->
+  
+              <div
+                class="modal fade"
+                id="registerModal2"
+                aria-hidden="true"
+                aria-labelledby="registerModalLabel2"
+                tabindex="-1"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="registerModalLabel2">
+                        Register
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="registerForm">
+                        <div class="form-group">
+                          <label for="username">Username</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="registerUsername"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Email</label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="registerEmail"
+                            placeholder="Enter your Noroff email"
+                            autocomplete="email"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="username">Password</label>
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="registerPassword"
+                            placeholder="Enter your password"
+                            autocomplete="new-password"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Avatar (Optional)</label>
+                          <input
+                            type="url"
+                            class="form-control"
+                            id="registerAvatar"
+                            placeholder="add a profile picture (must be a link)"
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">
+                          Register
+                        </button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <p
+                        class="errorResponseRegister text-danger text-center col-12"
+                      ></p>
+                      <button
+                        class="btn btn-link float-end"
+                        data-bs-target="#loginModal"
+                        data-bs-toggle="modal"
+                        data-bs-dismiss="modal"
+                      >
+                        Already have an account? Login here!
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Modal logout -->
+              <div
+                class="modal fade"
+                id="logoutModal"
+                tabindex="-1"
+                aria-labelledby="logoutModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Click the button below to logout
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                      <button type="button" class="btn btn-primary">
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
   </body>
 </html>
