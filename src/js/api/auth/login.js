@@ -14,8 +14,10 @@ export async function login(email, password) {
       localStorage.setItem("accessToken", json.accessToken);
       localStorage.setItem("username", json.name);
       localStorage.setItem("credits", json.credits);
+      localStorage.setItem("avatar", json.avatar);
 
-      console.log("user hass logged in");
+
+      console.log("user has logged in");
     }
   } catch (error) {
     console.log(error);

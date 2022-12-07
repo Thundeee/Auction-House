@@ -1,20 +1,9 @@
 import * as calls from "./api/apiCalls.js";
-
-/*
-calls.register(name, email, password, avatar)
-calls.login(email, password)
-calls.logOut()
-calls.allListings()
-calls.singleListing(id)
-calls.createListing(title, desc, [media], date)
-calls.deleteListing(id)
-*/
-
-//TEST AH f4a647cc-95eb-49f9-bda7-24a6d6949dbc
-//calls.register("test5299" , "test5299@noroff.no", " test5299", "https://i.imgur.com/111PbS5.jpeg")
+import * as utils from "./utils/utils.js";
+//calls.register("test5200" , "test5200@noroff.no", "test5200", "https://i.imgur.com/111PbS5.jpeg")
 
 async function allTest() {
-  await calls.login("test5199@noroff.no", "test5199");
+  await calls.login("test5200@noroff.no", "test5200");
   //calls.allListings()
   // calls.singleListing("3ffc6335-90b0-48e8-9cdf-05ce1fbfed10")
   // calls.createListing("AteAgfdsgfdsA",  "tAest582asddsdassa12",  ["https://i.imgur.com/111PbS5.jpeg"],  "2022-12-30T19:00:00.000Z");
@@ -27,4 +16,4 @@ async function allTest() {
   // calls.updateAvatar("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
 }
 
-allTest();
+//allTest();
