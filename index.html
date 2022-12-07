@@ -65,7 +65,7 @@
               </button>
             </a>
             <a href="addFunds.html" class="">
-              <p class="btn btn-success mb-0" style="white-space: nowrap">
+              <p class="btn btn-success mb-0" style="white-space: nowrap" id="wallet">
                 WALLET: 0
               </p>
             </a>
@@ -75,7 +75,6 @@
               class="btn btn-secondary p-3"
               data-bs-toggle="modal"
               data-bs-target="#loginModal">Login</button>
-           <!-- <img class="img-fluid col-2" src="./assets/img/noImg.jpg" data-bs-toggle="modal" href="#logoutModal" alt="profile picture" style="cursor: pointer;"/>-->
           </div>
         </div>
       </div>
@@ -107,16 +106,17 @@
                     <form class="loginForm">
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your Noroff email">
+                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your Noroff email" required>
                       </div>
                       <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
                       </div>
                       <button type="submit" class="btn btn-primary mt-2">Login</button>
                     </form>
                   </div>
                   <div class="modal-footer">
+                    <p class="errorResponseLogin text-danger text-center col-12"></p>
                     <button class="btn btn-link float-end" data-bs-target="#registerModal2" data-bs-toggle="modal" data-bs-dismiss="modal">Don't have an account? Register here!</button>
 
                   </div>
@@ -138,24 +138,25 @@
                     <form class="registerForm">
                       <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        <input type="text" class="form-control" id="registerUsername" placeholder="Enter your username" required>
                       </div>
                       <div class="form-group">
                         <label for="password">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your Noroff email">
+                        <input type="email" class="form-control" id="registerEmail" placeholder="Enter your Noroff email" required>
                       </div>
                       <div class="form-group">
                         <label for="username">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
                       </div>
                       <div class="form-group">
-                        <label for="password">Avatar</label>
-                        <input type="url" class="form-control" id="avatar" placeholder="add a profile picture (must be a link)">
+                        <label for="password">Avatar (Optional)</label>
+                        <input type="url" class="form-control" id="registerAvatar" placeholder="add a profile picture (must be a link)">
                       </div>
                       <button type="submit" class="btn btn-primary mt-2">Register</button>
                     </form>
                   </div>
                   <div class="modal-footer">
+                    <p class="errorResponseRegister text-danger text-center col-12"></p>
                     <button class="btn btn-link float-end" data-bs-target="#loginModal" data-bs-toggle="modal" data-bs-dismiss="modal">Already have an account? Login here!</button>
 
                   </div>

@@ -8,6 +8,7 @@ export async function login(email, password) {
     });
     console.log(json)
     if (!response.ok) {
+      document.querySelector(".errorResponseLogin").innerHTML = json.errors[0].message;
       throw new Error();
     }
     if (json["accessToken"]) {
