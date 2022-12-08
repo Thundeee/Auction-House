@@ -231,7 +231,7 @@
                       ></p>
                       <button
                         class="btn btn-link float-end"
-                        data-bs-target="#registerModal2"
+                        data-bs-target="#registerModal"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
                       >
@@ -246,15 +246,15 @@
   
               <div
                 class="modal fade"
-                id="registerModal2"
+                id="registerModal"
                 aria-hidden="true"
-                aria-labelledby="registerModalLabel2"
+                aria-labelledby="registerModalLabel"
                 tabindex="-1"
               >
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="registerModalLabel2">
+                      <h5 class="modal-title" id="registerModalLabel">
                         Register
                       </h5>
                       <button
@@ -354,14 +354,35 @@
                       ></button>
                     </div>
                     <div class="modal-body">
-                      Click the button below to logout
+                      Are you sure you want to logout?
                     </div>
-                    <div class="modal-footer justify-content-start">
-                      <button type="button" class="btn btn-primary"  id="logout">
+                    <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn btn-danger"  id="logout">
                         Logout
+                      </button>
+                      <button type="button" class="btn btn-primary"  id="cancel">
+                        Cancel
                       </button>
                     </div>
                   </div>
+                </div>
+              </div>
+
+
+              <!-- offcanvas -->
+              <div class="offcanvas offcanvas-end text-bg-light" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title ps-2" id="canvas-title">Menu</h5>
+                  <button type="button" class="btn-close invert" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body mt-2">
+                  <ul class="text-secondary list-group">
+                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="index.html">Home</a></li>
+                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="create.html">Create Auction</a></li>
+                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="addFunds.html">Add Credits</a></li>
+                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="user.html">My Profile</a></li>
+                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" data-bs-toggle="modal" href="#logoutModal">Logout</a></li>
+                  </ul>
                 </div>
               </div>
   </body>

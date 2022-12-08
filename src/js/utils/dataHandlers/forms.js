@@ -9,10 +9,6 @@ let loginHandler = loginForm.addEventListener('submit', async (e) => {
   const email = loginForm.elements.loginEmail.value
   const password = loginForm.elements.loginPassword.value
   await calls.login(email, password)
-
-  // if (localStorage.getItem("accessToken")) {
-  //  window.location.reload();
-  //  }
 })
 
 let registerHandler = registerForm.addEventListener('submit', async (e) => {

@@ -6,6 +6,13 @@ $text: #000000;
 $light: #55329c;
 
 
+.offcanvas {
+
+  --bs-offcanvas-width : 250px !important;
+  --bs-offcanvas-padding-x : 2rem !important;
+}
+
+
 body {
     font-family: 'Noto Sans', sans-serif !important;
 
@@ -30,6 +37,19 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
 
   }
+
+.invert {
+    filter: invert(100%);
+}
+
+li:hover {
+    color: #ffffff;
+}
+
+a:hover {
+  color: #000000 !important;
+  text-decoration: underline !important;
+}
 
 
 .outlineRemover
