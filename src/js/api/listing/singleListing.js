@@ -5,7 +5,6 @@ export async function singleListing(id) {
     const { json, response } = await GET({
       url: `/listings/${id}?_seller=true&_bids=true`,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     });
     console.log(json);
