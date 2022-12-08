@@ -12,12 +12,12 @@ const makeRequest = async ({ url, body, headers = {}, method }) => {
       ...headers,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   });
   console.log(response);
   if (method == "DELETE") {
     return response;
-  } 
+  }
   const json = await response.json();
   return { json, response };
 };
