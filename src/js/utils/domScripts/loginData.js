@@ -1,23 +1,24 @@
-localStorage.getItem("accessToken");
-localStorage.getItem("username");
-localStorage.getItem("credits");
-localStorage.getItem("avatar");
+localStorage.getItem('username')
+localStorage.getItem('credits')
+localStorage.getItem('avatar')
 
-
-
-document.getElementById("wallet").innerHTML = "Wallet: " + localStorage.getItem("credits");
-
-let btn = document.querySelector("#loginButtonDiv");
-
-if (localStorage.getItem("avatar") && localStorage.getItem("avatar") != "null") {
-    console.log("avatar exists");
-    btn.innerHTML = `<img class="img-fluid" src="${localStorage.getItem("avatar")} height="100" width="100" " data-bs-toggle="modal" href="#logoutModal" alt="profile picture" style="cursor: pointer;"/>`;
-} else {
-    console.log("no avatar");
-
+if (localStorage.getItem('credits')) {
+  document.getElementById('wallet').innerHTML =
+    'Wallet: ' + localStorage.getItem('credits')
 }
 
-// USE DEFAULT PIC IF avatar === NULL
+let btn = document.querySelector('#loginButtonDiv')
 
-
-// <!-- <img class="img-fluid col-2" src="./assets/img/noImg.jpg" data-bs-toggle="modal" href="#logoutModal" alt="profile picture" style="cursor: pointer;"/>-->
+if (
+  localStorage.getItem('avatar') &&
+  localStorage.getItem('avatar') != 'null'
+) {
+  console.log('avatar exists')
+  btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="${localStorage.getItem(
+    'avatar',
+  )} " data-bs-toggle="modal" href="#logoutModal" alt="profile picture" style="cursor: pointer;"/>`
+} else if (localStorage.getItem('avatar') === 'null') {
+  btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="./assets/img/noImg.jpg" data-bs-toggle="modal" href="#logoutModal" alt="profile picture" style="cursor: pointer;"/>`
+} else {
+  console.log('avatar does not exist')
+}

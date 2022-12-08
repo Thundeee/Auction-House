@@ -23,8 +23,13 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-//$heading-font-family: 'Merriweather', serif;
-//$body-font-family: 'N1oto Sans', sans-serif;
+  .pfp {
+    width: 100px !important;
+    height: 100px !important;
+    object-position: center;
+    object-fit: cover;
+
+  }
 
 
 .outlineRemover

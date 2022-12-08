@@ -83,7 +83,7 @@
             >
               Login
             </button>
-          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -315,10 +315,14 @@
                     </div>
                     <div class="modal-footer">
                       <p
+                      class="positiveResponseRegister text-success text-center col-12"
+                    ></p>
+                      <p
                         class="errorResponseRegister text-danger text-center col-12"
                       ></p>
                       <button
                         class="btn btn-link float-end"
+                        id="goToLogin"
                         data-bs-target="#loginModal"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
@@ -353,7 +357,7 @@
                       Click the button below to logout
                     </div>
                     <div class="modal-footer justify-content-start">
-                      <button type="button" class="btn btn-primary">
+                      <button type="button" class="btn btn-primary"  id="logout">
                         Logout
                       </button>
                     </div>
