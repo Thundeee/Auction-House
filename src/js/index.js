@@ -2,7 +2,7 @@ import * as calls from "./api/apiCalls.js";
 import * as utils from "./utils/utils.js";
 
 async function allTest() {
- // calls.allListings()
+//  calls.allListings()
  // calls.singleListing("3ffc6335-90b0-48e8-9cdf-05ce1fbfed10")
  // calls.createListing("AteAgfdsgfdsA",  "tAest582asddsdassa12",  ["https://i.imgur.com/111PbS5.jpeg"],  "2022-12-30T19:00:00.000Z");
   //calls.deleteListing("73825c21-9f5c-4bdf-a6e7-6a4b49c7efd4")

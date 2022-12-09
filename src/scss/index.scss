@@ -38,6 +38,13 @@ h1, h2, h3, h4, h5, h6 {
 
   }
 
+  .imgAll {
+    width: 150px;
+    height: 150px;
+    object-position: center;
+    object-fit: cover;
+  }
+
 .invert {
     filter: invert(100%);
 }
