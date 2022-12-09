@@ -52,6 +52,7 @@
               />
               <i
                 class="bi bi-search col-1 d-flex justify-content-end align-items-center pe-2"
+                type="submit"
               ></i>
             </form>
           </div>
@@ -93,7 +94,63 @@
       <div class="container">
         <div class="row d-flex">
           <div class="col-12">
-            <h1 class="text-white text-center mt-4">Bergen Auction House</h1>
+            <h1 class="text-white text-center mt-4">Create Auction</h1>
+            <h3 class="text-danger text-center " id="createErros"></h3>
+
+          <div class="bg-secondary col-6 mx-auto">
+          <form class="createForm m-3">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter title"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                placeholder="Enter description"
+                style="resize: none;"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="media">Media</label>         
+              <input
+                type="url"
+                class="form-control"
+                id="media"
+                placeholder="Enter media (must be a link)"
+              />
+
+            </div>
+            <div class="form-group">
+              <label for="endsAt">Ends at</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="endsAt"
+                min="2022-12-09T00:00"
+                max="2100-01-01T00:00"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary my-3">Post Auction!</button>
+            
+          </form>
+</div>
+<h3 class="text-success text-center" id="createSuccesss"></h3>
+
+
+
+
+
           </div>
         </div>
       </div>
