@@ -1,7 +1,7 @@
 import * as calls from '../../api/apiCalls.js'
 
-
-if (window.location.pathname == "/index.html" || window.location.pathname == "/") {
+//have to put in extra here for github pages
+if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "Auction-House/index.html" || window.location.pathname == "Auction-House/") {
     const json = await calls.allListings()
     console.log(json)
 
@@ -68,8 +68,8 @@ postMaker(json)
                       <p class="card-text" id="countdown">${endDate}</p>
                       <p class="card-text">${bid}</p>
                       <div>
-                      <button type="button" class="btn btn-success">Bid +1</button>
-                      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary">More Info</button></a>
+                      <button type="button" class="btn btn-success m-1">Bid +1</button>
+                      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary m-1">More Info</button></a>
                       </div>
                   </div>
                   </div>
