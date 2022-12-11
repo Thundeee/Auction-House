@@ -1,7 +1,7 @@
 import * as calls from '../../api/apiCalls.js'
 
 
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname == "/index.html" || window.location.pathname == "/") {
     const json = await calls.allListings()
     console.log(json)
 
@@ -32,15 +32,15 @@ postMaker(json)
         if (postData[i].bids.length > 0) {
             bid = "Current bid: "+ postData[i].bids[postData[i].bids.length - 1].amount;
         } else {
-            bid = "No bids yet";
+            bid = "No bids yet...";
         }
 
 
 //description handler
         if (!postData[i].description) {
             postData[i].description = "No description provided.";
-        } else if (postData[i].description.length > 90) {
-            postData[i].description = postData[i].description.substring(0, 90) + "...";
+        } else if (postData[i].description.length > 70) {
+            postData[i].description = postData[i].description.substring(0, 70) + "...";
         }
         
 
@@ -50,28 +50,31 @@ postMaker(json)
 // countdown until endDate
       
       container.innerHTML += `
-                  <div class="card-body bg-secondary m-5 col-3">
-                      <div class="card-title m-1 text-break"><h3>${
+                  <div class="card bg-secondary m-4 col-3" style="min-width: 160px !important; max-width: 500px;">
+                      <div class="card-title m-1 text-break text-center"><h3>${
                         postData[i].title
                       }</h3>
                       </div>
                       <div class="card-subtitle text-muted m-1">By: ${
                         postData[i].seller.name
                       }</div>
-                      <div class="d-flex flex-column flex-md-row m-1">
+                      <div class="d-flex flex-column flex-lg-row m-1">
                       <img src= "${
                         postData[i].media
-                      }" class="imgAll border border-dark m-auto m-md-0"></img>
-                      <p class="card-text m-2">${postData[i].description}</p>
+                      }" class="imgAll border border-dark m-auto m-lg-0 col-12"></img>
+                      <p class="card-text m-2 text-break">${postData[i].description}</p>
                       </div>
+                      <div class="card-footer">
                       <p class="card-text" id="countdown">${endDate}</p>
-                      <p>${bid}</p>
-                      <div class="m-1">
-                      <button type="button" class="btn btn-success col-5">Bid +1</button>
-                      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary col-5">More Info</button></a>
+                      <p class="card-text">${bid}</p>
+                      <div>
+                      <button type="button" class="btn btn-success">Bid +1</button>
+                      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary">More Info</button></a>
                       </div>
                   </div>
-                  </div>`;  }
+                  </div>
+                  </div>
+                  `;  }
 
 
   let countdownTargets = document.querySelectorAll("#countdown");
