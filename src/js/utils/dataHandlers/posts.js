@@ -1,22 +1,4 @@
-import * as calls from '../../api/apiCalls.js'
-
-
-console.log(window.location.pathname)
-//have to put in extra here for github pages
-if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "Auction-House/index.html" || window.location.pathname == "Auction-House/") {
-    const json = await calls.allListings()
-    console.log(json)
-
-let container = document.querySelector("#container")
-
-postMaker(json)
-    
-}
-
-  
-
-
-  function postMaker(postData) {
+export function postMaker(postData) {
     container.innerHTML = "";
   
     for (let i = 0; i < postData.length; i++) {
