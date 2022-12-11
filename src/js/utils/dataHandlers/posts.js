@@ -18,9 +18,6 @@ postMaker(json)
     container.innerHTML = "";
   
     for (let i = 0; i < postData.length; i++) {
-      let buttons = `
-      <button type="button" class="btn btn-success">Bid +100</button>
-      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary">More Info</button></a>`;
 
 
 // Image handler  
@@ -40,10 +37,10 @@ postMaker(json)
 
 
 //description handler
-        if (postData[i].description == null) {
+        if (!postData[i].description) {
             postData[i].description = "No description provided.";
-        } else if (postData[i].description.length > 100) {
-            postData[i].description = postData[i].description.substring(0, 100) + "...";
+        } else if (postData[i].description.length > 90) {
+            postData[i].description = postData[i].description.substring(0, 90) + "...";
         }
         
 
@@ -51,30 +48,30 @@ postMaker(json)
       let endDate = new Date(postData[i].endsAt);
 
 // countdown until endDate
-        
-
-        
-
-  
+      
       container.innerHTML += `
-                  <div class="card-body bg-secondary border col-3 m-4 w-25% ">
-                      <div class="card-title"><h3 class= "textTitle">${
+                  <div class="card-body bg-secondary m-5 col-3">
+                      <div class="card-title m-1 text-break"><h3>${
                         postData[i].title
                       }</h3>
-                      <div class="card-subtitle text-muted">By: ${
+                      </div>
+                      <div class="card-subtitle text-muted m-1">By: ${
                         postData[i].seller.name
                       }</div>
-                      <p class="card-text">${postData[i].description}</p>
+                      <div class="d-flex flex-column flex-md-row m-1">
                       <img src= "${
                         postData[i].media
-                      }" class=" imgAll border border-dark"></img><br>
+                      }" class="imgAll border border-dark m-auto m-md-0"></img>
+                      <p class="card-text m-2">${postData[i].description}</p>
+                      </div>
                       <p class="card-text" id="countdown">${endDate}</p>
                       <p>${bid}</p>
-                      ${buttons}
+                      <div class="m-1">
+                      <button type="button" class="btn btn-success col-5">Bid +1</button>
+                      <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary col-5">More Info</button></a>
+                      </div>
                   </div>
-                  </div>`;
-    
-  }
+                  </div>`;  }
 
 
   let countdownTargets = document.querySelectorAll("#countdown");

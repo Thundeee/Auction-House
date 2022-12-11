@@ -15,6 +15,7 @@ $light: #55329c;
 
 body {
     font-family: 'Noto Sans', sans-serif !important;
+    overflow-x: hidden;
 
 }
 
@@ -39,10 +40,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .imgAll {
-    width: 150px;
-    height: 150px;
-    object-position: center;
-    object-fit: cover;
+    width: 150px !important; 
+    height: 150px !important;
+    object-fit: cover !important;
   }
 
 .invert {
@@ -62,6 +62,11 @@ a:hover {
 .outlineRemover
 {
     outline:0px !important;
+}
+
+
+.frontCards {
+  min-width: fit-content;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
