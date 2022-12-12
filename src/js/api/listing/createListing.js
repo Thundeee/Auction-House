@@ -13,8 +13,13 @@ export async function createListing(title, description, media, endsAt) {
     console.log(response.ok);
 
     if (!response.ok) {
+      document.querySelector(".errorResponseCreate").innerHTML = json.errors[0].message;
       throw new Error();
     }
+    document.querySelector(".positiveResponseCreate").innerHTML = "Auction created successfully!";
+
+
+
   } catch (error) {
     console.log(error);
   }

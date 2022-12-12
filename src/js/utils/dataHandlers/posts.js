@@ -134,22 +134,17 @@ endDate[i] -1000
 
 function searcher(keyword) {
 
-  console.log(window.location.pathname)
   if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
-  console.log("main")
   }else {
-    console.log(window.location.pathname)
     console.log("redirect")
     window.location.href = `./index.html?${keyword}`;
    }
-  console.log(keyword)
 
 
     if (!keyword) {
       postMaker(data);
       return;
     }
-    console.log(keyword)
     let postList = [];
     let j = 0;
     let title, description, seller;

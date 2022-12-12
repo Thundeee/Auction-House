@@ -11,7 +11,7 @@ export async function allListings() {
     if (!response.ok) {
       throw new Error();
     }
-
+  
 
     return json;
 
