@@ -38,6 +38,12 @@ let registerHandler = registerForm.addEventListener('submit', async (e) => {
     errorRegister.innerHTML =
       "Name must not contain punctuation symbols apart from underscore.";
     return;
+
+   } else if (name.length > 20) {
+    errorRegister.innerHTML =
+      "Name cannot be longer than 20 characters.";
+    return;
+    
   } else if (!/@(stud.noroff.no|noroff.no)/.test(email)) {
     errorRegister.innerHTML =
       "Invalid email address, please use your Noroff address.";
@@ -45,9 +51,12 @@ let registerHandler = registerForm.addEventListener('submit', async (e) => {
   } else if (password.length < 8) {
     errorRegister.innerHTML = "Password has to be 8 or more characters.";
     return;
-  } else if (!/.*\.(jpeg|jpg|gif|png)/i.test(avatar)) {
-    errorRegister.innerHTML = "Avatar must be a picture.";
+  } else if (avatar) {
+    if (!/.*\.(jpeg|jpg|gif|png)/i.test(avatar)) {
+          errorRegister.innerHTML = "Avatar must be a picture.";
     return;
+    }
+
   }
 
   errorRegister.innerHTML = "";
