@@ -1,6 +1,6 @@
 {
   "name": "auction-house",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Auction House using noroff API",
   "main": "index.js",
   "scripts": {
