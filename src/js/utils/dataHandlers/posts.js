@@ -42,10 +42,10 @@ export function postMaker(postData) {
                       <div class="card-subtitle text-muted m-1">By: ${
                         postData[i].seller.name
                       }</div>
-                      <div class="d-flex flex-column flex-lg-row m-1">
+                      <div class="d-flex flex-column flex-xl-row m-1">
                       <img src= "${
                         postData[i].media
-                      }" class="imgAll border border-dark m-auto m-lg-0 col-12"></img>
+                      }" class="imgAll border border-dark m-auto m-xl-0 col-12"></img>
                       <p class="card-text m-2 text-break">${postData[i].description}</p>
                       </div>
                       <div class="card-footer">
