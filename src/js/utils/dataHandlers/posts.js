@@ -1,23 +1,30 @@
 import * as calls from '../../api/apiCalls.js'
 
+let data;
 
 export async function initial() {
   //have to put in extra here for github pages
 if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
   const json = await calls.allListings()
   console.log(json)
+  
 
 let container = document.querySelector("#container")
 
-postMaker(json)
-  
+await postMaker(json)
+  data = json;
+
+  if (window.location.search) {
+    searcher(window.location.search.substring(1) )
+  }
+
 }
-  
 }
 
 
 
-export function postMaker(postData) {
+
+function postMaker(postData) {
   let container = document.querySelector("#container")
     container.innerHTML = "";
   
@@ -113,5 +120,52 @@ endDate[i] -1000
   
 
 
+  }
+
   
+
+  let searchBar = document.querySelector("#searchForm")
+  searchBar.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  let searchLetters = searchBar.elements[0].value;
+  searchLetters = searchLetters.toLowerCase();
+  searcher(searchLetters);
+  })
+
+function searcher(keyword) {
+
+  console.log(window.location.pathname)
+  if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
+  console.log("main")
+  }else {
+    console.log(window.location.pathname)
+    console.log("redirect")
+    window.location.href = `./index.html?${keyword}`;
+   }
+  console.log(keyword)
+
+
+    if (!keyword) {
+      postMaker(data);
+      return;
+    }
+    console.log(keyword)
+    let postList = [];
+    let j = 0;
+    let title, description, seller;
+    for (let i = 0; i < data.length; i++) {
+      title = data[i].title.toLowerCase();
+      description = data[i].description.toLowerCase();
+      seller = data[i].seller.name.toLowerCase();
+      if (
+        title.includes(keyword) ||
+        description.includes(keyword) ||
+        seller.includes(keyword)
+      ) {
+        console.log(1)
+        postList[j] = data[i];
+        j++;
+      }
+    }
+    postMaker(postList);
   }
