@@ -10,7 +10,7 @@ async function allTest() {
   //calls.bidListing("f4a647cc-95eb-49f9-bda7-24a6d6949dbc", 1)
 
   //calls.singleProfile("test5199")
-  //calls.listingsProfile("test5199")
+  //calls.listingProfile("test5199")
   // calls.updateAvatar("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
 }
 
@@ -18,15 +18,5 @@ async function allTest() {
 allTest();
 
 
-
-console.log(window.location.pathname)
-//have to put in extra here for github pages
-if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
-    const json = await calls.allListings()
-    console.log(json)
-
-let container = document.querySelector("#container")
-
-utils.postMaker(json)
+utils.initial()
     
-}

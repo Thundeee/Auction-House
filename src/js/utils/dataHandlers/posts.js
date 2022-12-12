@@ -1,4 +1,24 @@
+import * as calls from '../../api/apiCalls.js'
+
+
+export async function initial() {
+  //have to put in extra here for github pages
+if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
+  const json = await calls.allListings()
+  console.log(json)
+
+let container = document.querySelector("#container")
+
+postMaker(json)
+  
+}
+  
+}
+
+
+
 export function postMaker(postData) {
+  let container = document.querySelector("#container")
     container.innerHTML = "";
   
     for (let i = 0; i < postData.length; i++) {
