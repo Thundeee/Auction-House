@@ -52,6 +52,12 @@ image.addEventListener('input', () => {
         const description = auctionCreateForm.elements.description.value
         const endDate = auctionCreateForm.elements.endsAt.value
 
+
+        if (!localStorage.getItem("accessToken")) {
+            document.querySelector(".errorResponseCreate").innerHTML = ("Please log in to create an auction")
+            return;
+        }
+
         const dato = new Date(endDate)
         if (dato.getTime() < new Date().getTime()) {
             document.querySelector(".errorResponseCreate").innerHTML = ("Please select a date in the future")
