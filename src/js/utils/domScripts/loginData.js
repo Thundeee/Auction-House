@@ -1,6 +1,7 @@
-localStorage.getItem('username')
-localStorage.getItem('credits')
-localStorage.getItem('avatar')
+
+export function domManip() {
+  
+
 
 if (localStorage.getItem('credits')) {
   document.getElementById('wallet').innerHTML =
@@ -19,4 +20,6 @@ if (
   btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="./assets/img/noImg.jpg" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" alt="profile picture" style="cursor: pointer;"/>`
 } else {
   console.log('avatar does not exist')
+}
+
 }

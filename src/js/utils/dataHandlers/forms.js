@@ -1,4 +1,5 @@
 import * as calls from '../../api/apiCalls.js'
+import * as utils from '../utils.js'
 
 const loginForm = document.querySelector('.loginForm')
 const registerForm = document.querySelector('.registerForm')
@@ -68,4 +69,22 @@ let logOutHandler = logOutButton.addEventListener('click', () => {
   calls.logOut()
 })
 
-export { loginHandler, registerHandler, logOutHandler }
+
+
+async function bidOnItemHandler(id, amount) {
+  console.log(amount);
+  console.log(id);
+  amount = parseInt(amount)
+await calls.bidListing(amount, id)
+await calls.singleProfile(localStorage.getItem("username"))
+utils.domManip();
+
+  
+}
+
+
+
+export { loginHandler, registerHandler, logOutHandler, bidOnItemHandler }
+
+
+

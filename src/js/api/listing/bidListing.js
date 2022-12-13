@@ -1,8 +1,6 @@
 import { POST } from "../requests.js";
 
-// BAD REQUEST
-
-export async function bidListing(id, amount) {
+export async function bidListing(amount, id) {
   try {
     const { json, response } = await POST({
       url: `/listings/${id}/bids`,
@@ -18,6 +16,7 @@ export async function bidListing(id, amount) {
       throw new Error();
     }
     console.log(` ${amount} bidded on auciton ${id}!`);
+
     return;
   } catch (error) {
     console.log(error);

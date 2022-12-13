@@ -76,21 +76,21 @@ let bid = await utils.bidHandler(postData[i].bids)
                       </div>
                       <div class="card-footer">
                       <p class="card-text" id="countdown">${endDate}</p>
-                      <p class="card-text">${bid}</p>
+                      <p class="card-text">${bid[0]}</p>
                       <div>
-                      <button type="button" class="btn btn-success m-1">Bid +1</button>
+                      <button type="submit" class="btn btn-success m-1 quickBid" data-bs-toggle="modal" data-bs-target="#bidModal" value="${bid[1] +1}"id="${postData[i].id}">Bid +1</button>
                       <a href="./auction.html?${postData[i].id}"><button type="button" class="btn btn-primary m-1">More Info</button></a>
                       </div>
                   </div>
                   </div>
                   </div>
-                  `;  }
+                  `;
+                }
 
 
                   utils.countdownHandler();
-  
 
-
+                  utils.quickBid();
   }
   /*
 let test1 = document.querySelector(".bi-search")

@@ -123,7 +123,6 @@
 
     <script type="module" src="./src/js/index.js" defer></script>
 
-
                 <!-- Modal login -->
 
                 <div
@@ -308,7 +307,8 @@
                       <button type="button" class="btn btn-danger"  id="logout">
                         Logout
                       </button>
-                      <button type="button" class="btn btn-primary"  id="cancel">
+                      <button type="button" class="btn btn-primary"  id="cancel"                         data-bs-dismiss="modal"
+                      aria-label="Close">
                         Cancel
                       </button>
                     </div>
@@ -316,6 +316,41 @@
                 </div>
               </div>
 
+              <!-- Modal BID -->
+              <div
+                class="modal fade"
+                id="bidModal"
+                tabindex="-1"
+                aria-labelledby="bidModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="bidModallLabel">Bid</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body quickBuy">
+                      Are you sure you want to bid X on Y
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn btn-success"  id="bid"  data-bs-dismiss="modal"
+                      aria-label="Bid" >
+                        Bid
+                      </button>
+                      <button type="button" class="btn btn-primary"  id="cancel"  data-bs-dismiss="modal"
+                      aria-label="Close">
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <!-- offcanvas -->
               <div class="offcanvas offcanvas-end text-bg-light" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">

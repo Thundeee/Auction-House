@@ -1,3 +1,6 @@
+import * as utils from '../utils.js'
+
+
 export function bidHandler(bidList) {
     console.log(bidList)
     let bid;
@@ -6,9 +9,11 @@ const max = Math.max(...bidList.map(x => x.amount), 0);
 console.log(max);
     
         if (bidList.length > 0) {
-           return bid = "Current bid: "+ max;
+           bid = "Current bid: "+ max;
+           return [bid, max];
         } else {
-           return bid = "No bids yet...";
+          bid = "No bids yet...";
+          return [bid, max];
         }
 }
 
@@ -93,3 +98,17 @@ for (let i = 0; i < media.length; i++) {
     }
 }
 
+
+export function quickBid() {
+    let quickButtons = document.querySelectorAll(".quickBid") 
+for (let i = 0; i < quickButtons.length; i++) {
+  quickButtons[i].addEventListener("click", async function(event) {
+    event.preventDefault();
+    let bid = quickButtons[i].value;
+    let id = quickButtons[i].id;
+    document.querySelector(".quickBuy").innerHTML = "Are you sure u want to bid: <b>"+ bid + "</b> credit(s) on this item?";
+  //  utils.bidOnItemHandler(id, bid)
+  })
+}
+    
+}

@@ -1,6 +1,5 @@
 import * as calls from '../../api/apiCalls.js'
 import * as utils from '../utils.js'
-
 if (window.location.href.match(/auction.html/)) {
     console.log("auction.html")
 
@@ -29,6 +28,7 @@ singlePostHandler(json);
 
         let bid = utils.bidHandler(post.bids)
 
+
         container.innerHTML = `
         <div class="text-white">
         <h1 class="text-white text-center mt-4">${post.title}</h1>
@@ -53,12 +53,26 @@ singlePostHandler(json);
             <div class="card-footer">
             <p class="card-text" id="countdown">${post.endsAt}</p>
             <p class="card-text">${bid}</p>
-            <div>
-            <button type="button" class="btn btn-success m-1">Bid +1</button>
-            </div>      
+            <form class="bidForm">
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                min="1"
+                class="form-control w-25"
+                id="amount"
+                placeholder="Enter amount to bid"
+              />
+            </div>
+            <button type="submit" class="btn btn-success my-3">
+              Bid!
+            </button>
+          </form>
+            
+
             <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#bidsCollapse" aria-expanded="false" aria-controls="bidsCollapse">
             Click to view bid history.
-          </button> 
+          </button>
         <div class="collapse" id="bidsCollapse">
           <ul class="bids bg-black" style="opacity: 0.7;">
           </ul>
@@ -70,6 +84,11 @@ singlePostHandler(json);
         utils.carousel(post.media);
 
 
+//bid on item listener
+document.querySelector(".bidForm").addEventListener("submit", async (event) => {
+event.preventDefault();
+utils.bidOnItemHandler(post.id, event.target.elements.amount.value);
+})
 
 //bid history stuff
         let bids = document.querySelector(".bids")
@@ -90,3 +109,5 @@ singlePostHandler(json);
         }
         utils.countdownHandler();
     }
+
+

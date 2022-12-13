@@ -17,5 +17,6 @@ async function allTest() {
 
 allTest();
 
+utils.domManip();
 
 utils.initial()
