@@ -13,6 +13,8 @@ export async function singleListing(id) {
     if (!response.ok) {
       throw new Error();
     }
+
+    return json;
   } catch (error) {
     console.log(error);
   }

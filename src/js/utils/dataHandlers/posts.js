@@ -1,4 +1,5 @@
 import * as calls from '../../api/apiCalls.js'
+import * as utils from '../utils.js'
 
 let data;
 
@@ -7,11 +8,14 @@ export async function initial() {
 if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
   const json = await calls.allListings()
   console.log(json)
-  
+  if (json == undefined) {
+    return;
+  }
 
 let container = document.querySelector("#container")
 
 await postMaker(json)
+//saves the data for later use
   data = json;
 
   if (window.location.search) {
@@ -23,29 +27,24 @@ await postMaker(json)
 
 
 
-
-function postMaker(postData) {
+// the function that actually makes the cards
+async function postMaker(postData) {
   let container = document.querySelector("#container")
     container.innerHTML = "";
   
     for (let i = 0; i < postData.length; i++) {
 
 
-// Image handler  
-      if (!postData[i].media[0]) {
-        postData[i].media[0] = "./assets/img/logo.png";
-      }
-
+// Image handler 
+        if (!postData[i].media[0]) {
+             postData[i].media[0] = "./assets/img/logo.png";
+          }
+        
+    
 
 
 // Bid handler
-        let bid = 0;
-        if (postData[i].bids.length > 0) {
-            bid = "Current bid: "+ postData[i].bids[postData[i].bids.length - 1].amount;
-        } else {
-            bid = "No bids yet...";
-        }
-
+let bid = await utils.bidHandler(postData[i].bids)
 
 //description handler
         if (!postData[i].description) {
@@ -58,7 +57,7 @@ function postMaker(postData) {
   // date handler
       let endDate = new Date(postData[i].endsAt);
 
-// countdown until endDate
+// HTML FOR CARDS
       
       container.innerHTML += `
                   <div class="card bg-secondary m-4 col-3" style="min-width: 160px !important; max-width: 500px;">
@@ -88,42 +87,21 @@ function postMaker(postData) {
                   `;  }
 
 
-  let countdownTargets = document.querySelectorAll("#countdown");
-
-  let endDate = [];
-  for (let i = 0; i < countdownTargets.length; i++) {
-
-     endDate[i] = new Date(countdownTargets[i].innerHTML)     
-  }
-;
-
-let timeLeft, days, hours, minutes, seconds;
-  setInterval(function () {
-    let now = new Date();
-
-
-    for (let i = 0; i < countdownTargets.length; i++) {
-
-         timeLeft = endDate[i] - now.getTime();
-endDate[i] -1000
-         days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-         hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-         minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-         seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-         countdownTargets[i].innerHTML = "Time left: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-        if (timeLeft < 0) {
-            countdownTargets[i].innerHTML = "Auction ended";
-        }     
-    }
-   
-}, 1000);
+                  utils.countdownHandler();
   
 
 
   }
+  /*
+let test1 = document.querySelector(".bi-search")
+test1.addEventListener("click", function(event) {
+  event.preventDefault();
+  searchBar.submit();
 
-  
 
+})
+*/
+  //search stuff
   let searchBar = document.querySelector("#searchForm")
   searchBar.addEventListener("submit", async function(event) {
   event.preventDefault();
@@ -136,11 +114,13 @@ function searcher(keyword) {
 
   if (window.location.pathname == "/index.html" || window.location.pathname == "/" || window.location.pathname == "/Auction-House/index.html" || window.location.pathname == "/Auction-House/") {
   }else {
+    //redirects to index.html with search query if not on index.html
     console.log("redirect")
     window.location.href = `./index.html?${keyword}`;
    }
+   document.querySelector(".errorFront").innerHTML = ("")
 
-
+   //if no search query, show all posts
     if (!keyword) {
       postMaker(data);
       return;
@@ -162,5 +142,7 @@ function searcher(keyword) {
         j++;
       }
     }
+    if (postList.length == 0) {
+      document.querySelector(".errorFront").innerHTML = (`No results found for "${keyword}"`)}
     postMaker(postList);
   }
