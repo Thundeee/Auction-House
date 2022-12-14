@@ -52,7 +52,7 @@ singlePostHandler(json);
             </div>
             <div class="card-footer">
             <p class="card-text" id="countdown">${post.endsAt}</p>
-            <p class="card-text">${bid}</p>
+            <p class="card-text">${bid[0]}</p>
             <form class="bidForm">
             <div class="form-group">
               <label for="amount">Amount</label>
@@ -77,6 +77,8 @@ singlePostHandler(json);
           <ul class="bids bg-black" style="opacity: 0.7;">
           </ul>
         </div> 
+        <div class="mb-5">
+        </div>
         </div>
         </div>
         `;
@@ -87,7 +89,7 @@ singlePostHandler(json);
 //bid on item listener
 document.querySelector(".bidForm").addEventListener("submit", async (event) => {
 event.preventDefault();
-utils.bidOnItemHandler(post.id, event.target.elements.amount.value);
+utils.bidOnItemHandler(event.target.elements.amount.value, post.id);
 })
 
 //bid history stuff

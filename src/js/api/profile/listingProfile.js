@@ -12,7 +12,7 @@ export async function listingsProfile(name) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      throw new Error(json.errors[0].message);
     }
   } catch (error) {
     console.log(error);

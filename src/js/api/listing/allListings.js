@@ -15,7 +15,7 @@ export async function allListings() {
         throw new Error();
         
       }
-      throw new Error();
+      throw new Error(json.errors[0].message);
     }
   
 

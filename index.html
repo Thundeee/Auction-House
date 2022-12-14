@@ -43,7 +43,7 @@
             <form
               role="search"
               class="col-12 text-white bg-black d-flex"
-              style="opacity: 0.7;"
+              style="opacity: 0.7"
               id="searchForm"
             >
               <input
@@ -70,22 +70,22 @@
             <a href="addFunds.html" class="">
               <p
                 class="btn btn-success mb-0"
-                style="white-space: nowrap;"
+                style="white-space: nowrap"
                 id="wallet"
               >
                 WALLET: 0
               </p>
             </a>
-<div id="loginButtonDiv">
-            <button
-              type="button"
-              class="btn btn-secondary p-3"
-              data-bs-toggle="modal"
-              data-bs-target="#loginModal"
-            >
-              Login
-            </button>
-        </div>
+            <div id="loginButtonDiv">
+              <button
+                type="button"
+                class="btn btn-secondary p-3"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -96,9 +96,12 @@
         <div class="row d-flex">
           <div class="col-12">
             <h1 class="text-white text-center mt-4">Bergen Auction House</h1>
+            <h3 class="bidSuccess text-success text-center"></h3>
             <h3 class="errorFront text-danger text-center"></h3>
-            <div id="container" class="d-flex flex-wrap col-12 justify-content-center"></div>
-
+            <div
+              id="container"
+              class="d-flex flex-wrap col-12 justify-content-center"
+            ></div>
           </div>
         </div>
       </div>
@@ -123,250 +126,300 @@
 
     <script type="module" src="./src/js/index.js" defer></script>
 
-                <!-- Modal login -->
+    <!-- Modal login -->
 
-                <div
-                class="modal fade"
-                id="loginModal"
-                aria-hidden="true"
-                aria-labelledby="loginModalLabel"
-                tabindex="-1"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="loginForm">
-                        <div class="form-group">
-                          <label for="email">Email</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="loginEmail"
-                            placeholder="Enter your Noroff email"
-                            autocomplete="email"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Password</label>
-                          <input
-                            type="password"
-                            class="form-control"
-                            id="loginPassword"
-                            placeholder="Enter your password"
-                            autocomplete="current-password"
-                            required
-                          />
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-2">
-                          Login
-                        </button>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <p
-                        class="errorResponseLogin text-danger text-center col-12"
-                      ></p>
-                      <button
-                        class="btn btn-link float-end"
-                        data-bs-target="#registerModal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                      >
-                        Don't have an account? Register here!
-                      </button>
-                    </div>
-                  </div>
-                </div>
+    <div
+      class="modal fade"
+      id="loginModal"
+      aria-hidden="true"
+      aria-labelledby="loginModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="loginForm">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Enter your Noroff email"
+                  autocomplete="email"
+                  required
+                />
               </div>
-  
-              <!-- Modal register -->
-  
-              <div
-                class="modal fade"
-                id="registerModal"
-                aria-hidden="true"
-                aria-labelledby="registerModalLabel"
-                tabindex="-1"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="registerModalLabel">
-                        Register
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="registerForm">
-                        <div class="form-group">
-                          <label for="username">Username</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="registerUsername"
-                            placeholder="Enter your username"
-                            autocomplete="username"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Email</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="registerEmail"
-                            placeholder="Enter your Noroff email"
-                            autocomplete="email"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="username">Password</label>
-                          <input
-                            type="password"
-                            class="form-control"
-                            id="registerPassword"
-                            placeholder="Enter your password"
-                            autocomplete="new-password"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Avatar (Optional)</label>
-                          <input
-                            type="url"
-                            class="form-control"
-                            id="registerAvatar"
-                            placeholder="add a profile picture (must be a link)"
-                          />
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-2">
-                          Register
-                        </button>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <p
-                      class="positiveResponseRegister text-success text-center col-12"
-                    ></p>
-                      <p
-                        class="errorResponseRegister text-danger text-center col-12"
-                      ></p>
-                      <button
-                        class="btn btn-link float-end"
-                        id="goToLogin"
-                        data-bs-target="#loginModal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                      >
-                        Already have an account? Login here!
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
               </div>
-  
-              <!-- Modal logout -->
-              <div
-                class="modal fade"
-                id="logoutModal"
-                tabindex="-1"
-                aria-labelledby="logoutModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      Are you sure you want to logout?
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-danger"  id="logout">
-                        Logout
-                      </button>
-                      <button type="button" class="btn btn-primary"  id="cancel"                         data-bs-dismiss="modal"
-                      aria-label="Close">
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-primary mt-2">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="errorResponseLogin text-danger text-center col-12"></p>
+            <button
+              class="btn btn-link float-end"
+              data-bs-target="#registerModal"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Don't have an account? Register here!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-              <!-- Modal BID -->
-              <div
-                class="modal fade"
-                id="bidModal"
-                tabindex="-1"
-                aria-labelledby="bidModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="bidModallLabel">Bid</h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body quickBuy">
-                      Are you sure you want to bid X on Y
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-success"  id="bid"  data-bs-dismiss="modal"
-                      aria-label="Bid" >
-                        Bid
-                      </button>
-                      <button type="button" class="btn btn-primary"  id="cancel"  data-bs-dismiss="modal"
-                      aria-label="Close">
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- Modal register -->
 
-              <!-- offcanvas -->
-              <div class="offcanvas offcanvas-end text-bg-light" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title ps-2" id="canvas-title">Menu</h5>
-                  <button type="button" class="btn-close invert" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body mt-2">
-                  <ul class="text-secondary list-group">
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="index.html">Home</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="create.html">Create Auction</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="addFunds.html">Add Credits</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="user.html">My Profile</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" data-bs-toggle="modal" href="#logoutModal">Logout</a></li>
-                  </ul>
-                </div>
+    <div
+      class="modal fade"
+      id="registerModal"
+      aria-hidden="true"
+      aria-labelledby="registerModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Register</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="registerForm">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerUsername"
+                  placeholder="Enter your username"
+                  autocomplete="username"
+                  required
+                />
               </div>
+              <div class="form-group">
+                <label for="password">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="registerEmail"
+                  placeholder="Enter your Noroff email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  placeholder="Enter your password"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Avatar (Optional)</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="registerAvatar"
+                  placeholder="add a profile picture (must be a link)"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">
+                Register
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p
+              class="positiveResponseRegister text-success text-center col-12"
+            ></p>
+            <p class="errorResponseRegister text-danger text-center col-12"></p>
+            <button
+              class="btn btn-link float-end"
+              id="goToLogin"
+              data-bs-target="#loginModal"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Already have an account? Login here!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal logout -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure you want to logout?</div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" id="logout">
+              Logout
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="cancel"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal BID -->
+    <div
+      class="modal fade"
+      id="bidModal"
+      tabindex="-1"
+      aria-labelledby="bidModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bidModallLabel">Bid</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body quickBuy">
+            Are you sure you want to bid X on Y
+          </div>
+          <h4 class="text-center text-danger notLoggedIn">
+            Please login before trying to bid.
+          </h4>
+          <div class="modal-footer justify-content-between">
+            <button
+              type="button"
+              class="btn btn-success disabled"
+              id="bid"
+              data-bs-dismiss="modal"
+              aria-label="Bid"
+            >
+              Bid
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="cancel"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-end text-bg-light"
+      data-bs-scroll="true"
+      tabindex="-1"
+      id="offcanvas"
+      aria-labelledby="offcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title ps-2" id="canvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close invert"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body mt-2">
+        <ul class="text-secondary list-group">
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="index.html"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="create.html"
+              >Create Auction</a
+            >
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="addFunds.html"
+              >Add Credits</a
+            >
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="user.html"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              data-bs-toggle="modal"
+              href="#logoutModal"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

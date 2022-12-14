@@ -71,20 +71,9 @@ let logOutHandler = logOutButton.addEventListener('click', () => {
 
 
 
-async function bidOnItemHandler(id, amount) {
-  console.log(amount);
-  console.log(id);
-  amount = parseInt(amount)
-await calls.bidListing(amount, id)
-await calls.singleProfile(localStorage.getItem("username"))
-utils.domManip();
-
-  
-}
 
 
-
-export { loginHandler, registerHandler, logOutHandler, bidOnItemHandler }
+export { loginHandler, registerHandler, logOutHandler }
 
 
 

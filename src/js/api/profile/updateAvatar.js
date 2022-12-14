@@ -13,7 +13,7 @@ export async function updateAvatar(avatar) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      throw new Error(json.errors[0].message);
     }
     console.log("test");
   } catch (error) {

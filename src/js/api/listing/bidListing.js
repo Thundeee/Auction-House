@@ -13,12 +13,15 @@ export async function bidListing(amount, id) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      document.querySelector(".errorResponseSingle").innerHTML = json.errors[0].message;
+      
+      throw new Error(json.errors[0].message);
     }
     console.log(` ${amount} bidded on auciton ${id}!`);
 
-    return;
+    return
   } catch (error) {
     console.log(error);
+    return error;
   }
 }

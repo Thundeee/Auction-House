@@ -22,4 +22,11 @@ if (
   console.log('avatar does not exist')
 }
 
+
+if (localStorage.getItem('accessToken') && document.querySelector("#bid")) {
+  document.querySelector("#bid").classList.remove("disabled");
+  document.querySelector(".notLoggedIn").innerHTML = "";
+
+}
+
 }

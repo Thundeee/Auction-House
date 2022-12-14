@@ -14,7 +14,7 @@ export async function createListing(title, description, media, endsAt) {
 
     if (!response.ok) {
       document.querySelector(".errorResponseCreate").innerHTML = json.errors[0].message;
-      throw new Error();
+      throw new Error(json.errors[0].message);
     }
     document.querySelector(".positiveResponseCreate").innerHTML = "Auction created successfully!";
 

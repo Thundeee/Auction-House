@@ -12,7 +12,7 @@ export async function singleProfile(name) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      throw new Error(json.errors[0].message);
     }
     if (name == localStorage.getItem("username")) {
       localStorage.setItem("credits", json.credits);
