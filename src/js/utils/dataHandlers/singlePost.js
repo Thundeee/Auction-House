@@ -64,7 +64,10 @@ singlePostHandler(json);
                 placeholder="Enter amount to bid"
               />
             </div>
-            <button type="submit" class="btn btn-success my-3">
+            <h4 class="text-center text-danger notLoggedIn">
+            Please login before trying to bid.
+          </h4>
+            <button type="submit" class="btn btn-success my-3 disabled "id="bid">
               Bid!
             </button>
           </form>
