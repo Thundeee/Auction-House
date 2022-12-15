@@ -69,7 +69,7 @@ async function postMaker(postData) {
                       }</div>
                       <div class="d-flex flex-column flex-xl-row m-1">
                       <img src= "${
-                        postData[i].media
+                        postData[i].media[0]
                       }" class="imgAll border border-dark m-auto m-xl-0 col-12" alt="${
       postData.title
     }"></img>

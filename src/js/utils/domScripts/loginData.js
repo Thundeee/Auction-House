@@ -1,12 +1,12 @@
 import * as calls from '../../api/apiCalls.js'
 /**
- * 
+ *
  * @description This function is used to manipulate the DOM and display the user's wallet and profile picture on the navbar
  */
 export async function domManip() {
-   if (localStorage.getItem('username')) {
-await calls.singleProfile(localStorage.getItem('username'))
-}
+  if (localStorage.getItem('username')) {
+    await calls.singleProfile(localStorage.getItem('username'))
+  }
 
   if (localStorage.getItem('credits')) {
     document.getElementById('wallet').innerHTML =

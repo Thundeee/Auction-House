@@ -15,6 +15,10 @@ export async function singleProfile(name) {
     console.log(response.ok);
 
     if (!response.ok) {
+      if (response.status === 429) {
+        console.log("Too many requests")
+        throw new Error("Too many requests");
+      }
       throw new Error(json.errors[0].message);
     }
     if (name == localStorage.getItem("username")) {

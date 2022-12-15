@@ -12,6 +12,11 @@ export async function login(email, password) {
     });
     console.log(json)
     if (!response.ok) {
+      if (response.status === 429) {
+        console.log("Too many requests")
+        document.querySelector(".errorResponseLogin").innerHTML = ("Too many requests to the server, please try again later")
+        throw new Error("Too many requests");
+      }
       document.querySelector(".errorResponseLogin").innerHTML = json.errors[0].message;
       throw new Error(json.errors[0].message);
     }

@@ -13,7 +13,7 @@ export function bidHandler(bidList) {
   console.log(max)
 
   if (bidList.length > 0) {
-    bid = 'Current bid: ' + max
+    bid = 'Leading bid: ' + max
     return [bid, max]
   } else {
     bid = 'No bids yet...'
@@ -86,7 +86,7 @@ export function quickBid() {
 /**
  * @description function to handle bids from quickbid and normal bidding. Also updates the wallet after a bid is placed.
  * @param {String} amount 
- * @param {String} id 
+ * @param {string} id 
  */
 export async function bidOnItemHandler(amount, id) {
   console.log(amount)

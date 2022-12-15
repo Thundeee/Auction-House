@@ -19,6 +19,10 @@ export async function updateListing(id, title, description, media) {
     console.log(response.ok);
 
     if (!response.ok) {
+      if (response.status === 429) {
+        console.log("Too many requests")
+        throw new Error("Too many requests");
+      }
       throw new Error(json.errors[0].message);
     }
   } catch (error) {

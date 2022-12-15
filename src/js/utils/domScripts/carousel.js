@@ -18,7 +18,7 @@ export function carousel(media) {
         'border-dark',
       )
       carouselItem.innerHTML = `
-            <img src="./assets/img/logo.png" class="d-block w-100" alt="picture related to auction">
+            <img src="./assets/img/logo.png" class="imgSolo d-block" alt="No image provided, this is a default image.">
             `
       carousel.appendChild(carouselItem)
 
@@ -28,12 +28,12 @@ export function carousel(media) {
 
   for (let i = 0; i < media.length; i++) {
     let carouselItem = document.createElement('div')
-    carouselItem.classList.add('carousel-item', 'border', 'border-dark')
+    carouselItem.classList.add('carousel-item')
     if (i == 0) {
       carouselItem.classList.add('active')
     }
     carouselItem.innerHTML = `
-    <img src="${media[i]}" class="d-block w-100" alt="picture related to auction">
+    <img src="${media[i]}" class="d-block w-100 imgSolo" alt="picture related to auction">
     `
 
     carousel.appendChild(carouselItem)

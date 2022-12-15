@@ -19,6 +19,11 @@ export async function createListing(title, description, media, endsAt) {
     console.log(response.ok);
 
     if (!response.ok) {
+      if (response.status === 429) {
+        console.log("Too many requests")
+        document.querySelector(".errorResponseCreate").innerHTML = ("Too many requests to the server, please try again later")
+        throw new Error("Too many requests");
+      }
       document.querySelector(".errorResponseCreate").innerHTML = json.errors[0].message;
       throw new Error(json.errors[0].message);
     }

@@ -46,6 +46,12 @@ h1, h2, h3, h4, h5, h6 {
     
   }
 
+  .imgSolo{
+    height: 50vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
 .invert {
     filter: invert(100%);
 }
