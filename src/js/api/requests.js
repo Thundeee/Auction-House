@@ -7,8 +7,8 @@ const PUT = async (arg) => await makeRequest({ ...arg, method: "PUT" });
 /**
  * @description universal function for making requests to api, should use POST, DELETE, GET or PUT to make requests
  * @param {String} url 
- * @param {object} body
- * @param {object} headers
+ * @param {Object} body
+ * @param {Object} headers
  * @param {String} method
  * @returns answer from api
  */

@@ -1,7 +1,7 @@
 import { PUT } from "../requests.js";
 /**
  * @description updates avatar for user
- * @param {url} avatar 
+ * @param {URL} avatar 
  */
 export async function updateAvatar(avatar) {
   try {
