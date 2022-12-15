@@ -67,8 +67,6 @@ function singlePostHandler(post) {
               Bid!
             </button>
           </form>
-
-          
 <div class="col-5 col-lg-3 d-flex flex-column">
             <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#bidsCollapse" aria-expanded="false" aria-controls="bidsCollapse">
             Click to view bid history.

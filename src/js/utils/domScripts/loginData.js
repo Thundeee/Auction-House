@@ -6,6 +6,7 @@ import * as calls from '../../api/apiCalls.js'
 export async function domManip() {
   if (localStorage.getItem('username')) {
     await calls.singleProfile(localStorage.getItem('username'))
+    document.querySelector('#profileBtn').href = `/user.html?${localStorage.getItem('username')}`;
   }
 
   if (localStorage.getItem('credits')) {
@@ -37,4 +38,10 @@ export async function domManip() {
     document.querySelector('#bid').classList.remove('disabled')
     document.querySelector('.notLoggedIn').innerHTML = ''
   }
+
+if (localStorage.getItem('accessToken') && document.querySelector('.avatarChange')) {
+  document.querySelector('.avatarPlace')
+  
+}
+
 }
