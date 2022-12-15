@@ -13,3 +13,8 @@ Build the site
 ```
 npm run build
 ```
+
+Launch live server
+```
+npm run startServer
+```
