@@ -1,5 +1,10 @@
 import { POST } from "../requests.js";
-
+/**
+ * @description bids on a auction
+ * @param {Number} amount 
+ * @param {String} id 
+ *
+ */
 export async function bidListing(amount, id) {
   try {
     const { json, response } = await POST({

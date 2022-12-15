@@ -14,7 +14,10 @@ if (window.location.href.match(/auction.html/)) {
 
   singlePostHandler(json)
 }
-
+/**
+ * @description Handles the single post page, and fills it with the data from the API
+ * @param {Object} post - The post object from the API
+ */
 function singlePostHandler(post) {
   console.log(post)
   let container = document.querySelector('.singlePostContainer')

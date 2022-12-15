@@ -1,5 +1,11 @@
 import { PUT } from "../requests.js";
-
+/**
+ * @description updates an auction
+ * @param {String} id 
+ * @param {String} title 
+ * @param {String} description 
+ * @param {Array} media 
+ */
 export async function updateListing(id, title, description, media) {
   try {
     const { json, response } = await PUT({

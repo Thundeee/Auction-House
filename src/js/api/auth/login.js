@@ -1,5 +1,9 @@
 import { POST } from "../requests.js";
-
+/**
+ * @description logs a user in
+ * @param {String} email 
+ * @param {String} password 
+ */
 export async function login(email, password) {
   try {
     const { json, response } = await POST({

@@ -1,5 +1,8 @@
 import { PUT } from "../requests.js";
-
+/**
+ * @description updates avatar for user
+ * @param {url} avatar 
+ */
 export async function updateAvatar(avatar) {
   try {
     const { json, response } = await PUT({

@@ -1,5 +1,11 @@
 import { POST } from "../requests.js";
-
+/**
+ * @description registers a new user
+ * @param {String} name 
+ * @param {String} email 
+ * @param {String} password 
+ * @param {URL} avatar 
+ */
 export async function register(name, email, password, avatar) {
   try {
     const { json, response } = await POST({

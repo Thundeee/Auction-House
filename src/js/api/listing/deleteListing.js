@@ -1,7 +1,9 @@
 import { DELETE } from "../requests.js";
 
-// BAD REQUEST
-
+/**
+ * @description deletes a auction, only the seller can delete the auction
+ * @param {String} id 
+ */
 export async function deleteListing(id) {
   try {
     const response = await DELETE({

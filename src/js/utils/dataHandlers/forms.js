@@ -1,12 +1,13 @@
 import * as calls from '../../api/apiCalls.js'
 import * as utils from '../utils.js'
+// This file handles the login and register forms.It also handles logouts
 
 const loginForm = document.querySelector('.loginForm')
 const registerForm = document.querySelector('.registerForm')
 const logOutButton = document.querySelector('#logout')
 const errorRegister = document.querySelector('.errorResponseRegister')
 const errorLogin = document.querySelector('.errorResponseLogin')
-
+// handles the login form
 let loginHandler = loginForm.addEventListener('submit', async (e) => {
   e.preventDefault()
   const email = loginForm.elements.loginEmail.value
@@ -24,7 +25,7 @@ let loginHandler = loginForm.addEventListener('submit', async (e) => {
   errorLogin.innerHTML = ''
   await calls.login(email, password)
 })
-
+// handles the register form
 let registerHandler = registerForm.addEventListener('submit', async (e) => {
   e.preventDefault()
   const name = registerForm.elements.registerUsername.value
@@ -56,7 +57,7 @@ let registerHandler = registerForm.addEventListener('submit', async (e) => {
   errorRegister.innerHTML = ''
   await calls.register(name, email, password, avatar)
 })
-
+// handles the logout button
 let logOutHandler = logOutButton.addEventListener('click', () => {
   calls.logOut()
 })

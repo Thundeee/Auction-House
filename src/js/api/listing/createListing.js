@@ -1,5 +1,11 @@
 import { POST } from "../requests.js";
-
+/**
+ * @description creates a new auctions
+ * @param {String} title 
+ * @param {String} description 
+ * @param {Array} media 
+ * @param {Date} endsAt 
+ */
 export async function createListing(title, description, media, endsAt) {
   try {
     const { json, response } = await POST({

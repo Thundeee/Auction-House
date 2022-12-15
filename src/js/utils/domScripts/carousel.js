@@ -1,4 +1,7 @@
-// carousel stuff, removes the arrows if there is only one image or no images also gives default image if no images are present
+/**
+ * @description Creates the carousel for the listing, removes the arrows if there is only one image or no images also gives default image if no images are present
+ * @param {Array} media - Array of images
+ */
 export function carousel(media) {
   let carousel = document.querySelector('.carousel-inner')
 

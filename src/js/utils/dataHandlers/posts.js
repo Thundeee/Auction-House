@@ -2,7 +2,10 @@ import * as calls from '../../api/apiCalls.js'
 import * as utils from '../utils.js'
 
 let data
-
+/**
+ * @description This function is the main function that is called when the page is loaded. It calls the api and then calls the postMaker function to make the cards.
+ * 
+ */
 export async function initial() {
   //have to put in extra here for github pages
   if (
@@ -95,15 +98,7 @@ async function postMaker(postData) {
 
   utils.quickBid()
 }
-/*
-let test1 = document.querySelector(".bi-search")
-test1.addEventListener("click", function(event) {
-  event.preventDefault();
-  searchBar.submit();
 
-
-})
-*/
 //search stuff
 let searchBar = document.querySelector('#searchForm')
 searchBar.addEventListener('submit', async function (event) {
@@ -112,7 +107,11 @@ searchBar.addEventListener('submit', async function (event) {
   searchLetters = searchLetters.toLowerCase()
   searcher(searchLetters)
 })
-
+/**
+ * @description This function searches the data for the search query and then calls the postMaker function to make the cards.
+ * @param {String} keyword - the search query
+ * 
+ */
 function searcher(keyword) {
   if (
     window.location.pathname == '/index.html' ||

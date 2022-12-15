@@ -1,5 +1,9 @@
 import { GET } from "../requests.js";
-
+/**
+ * @description gets a single specified auction from api
+ * @param {String} id 
+ * @returns auction info
+ */
 export async function singleListing(id) {
   try {
     const { json, response } = await GET({

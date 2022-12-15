@@ -1,5 +1,8 @@
 import { GET } from "../requests.js";
-
+/**
+ * @description gets a profile from api
+ * @param {String} name 
+ */
 export async function singleProfile(name) {
   try {
     const { json, response } = await GET({

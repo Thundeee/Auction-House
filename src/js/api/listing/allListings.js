@@ -1,5 +1,8 @@
 import { GET } from "../requests.js";
-
+/**
+ * @description gets 100 auctions from api, used for the front page. Sorts by ending soonest
+ * @returns all auctions
+ */
 export async function allListings() {
   try {
     const { json, response } = await GET({

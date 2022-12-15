@@ -1,5 +1,8 @@
 import { GET } from "../requests.js";
-
+/**
+ * @description gets a users listings from api
+ * @param {String} name 
+ */
 export async function listingsProfile(name) {
   try {
     const { json, response } = await GET({
