@@ -12,7 +12,7 @@ export async function allListings() {
       if (response.status === 429) {
         console.log("Too many requests")
         document.querySelector(".errorFront").innerHTML = ("Too many requests to the server, please try again later")
-        throw new Error();
+        throw new Error("Too many requests");
         
       }
       throw new Error(json.errors[0].message);

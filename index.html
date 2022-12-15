@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#431c91" />
+    <meta
+      name="description"
+      content="Bergen Auction House is a community run auction site where you can buy, sell and discover anything you can think of!"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/css/stylesheet.css" />
     <script
@@ -43,7 +48,7 @@
             <form
               role="search"
               class="col-12 text-white bg-black d-flex"
-              style="opacity: 0.7"
+              style="opacity: 0.7;"
               id="searchForm"
             >
               <input
@@ -70,7 +75,7 @@
             <a href="addFunds.html" class="">
               <p
                 class="btn btn-success mb-0"
-                style="white-space: nowrap"
+                style="white-space: nowrap;"
                 id="wallet"
               >
                 WALLET: 0
@@ -96,8 +101,7 @@
         <div class="row d-flex">
           <div class="col-12">
             <h1 class="text-white text-center mt-4">Bergen Auction House</h1>
-            <h3 class="bidSuccess text-success text-center"></h3>
-            <h3 class="errorFront text-danger text-center"></h3>
+            <h2 class="errorFront text-danger text-center"></h2>
             <div
               id="container"
               class="d-flex flex-wrap col-12 justify-content-center"
@@ -114,11 +118,11 @@
       <div class="container">
         <div class="row">
           <div class="col-12 m-3">
-            <h5 class="text-white text-center">
+            <h4 class="text-white text-center">
               Bergen Auction House
               <br />
               @2022
-            </h5>
+            </h4>
           </div>
         </div>
       </div>
@@ -363,6 +367,43 @@
       </div>
     </div>
 
+    <!-- Modal BID SUCCESS -->
+    <div
+      class="modal fade"
+      id="bidSuccessModal"
+      tabindex="-1"
+      aria-labelledby="bidSuccessModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-success" id="bidSuccessModalLabel">
+              SUCCESS!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body bidSuccess">bid completed</div>
+          <div class="modal-footer justify-content-between">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="Close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- offcanvas -->
     <div
       class="offcanvas offcanvas-end text-bg-light"
@@ -386,37 +427,42 @@
             <a
               class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
               href="index.html"
-              >Home</a
             >
+              Home
+            </a>
           </li>
           <li>
             <a
               class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
               href="create.html"
-              >Create Auction</a
             >
+              Create Auction
+            </a>
           </li>
           <li>
             <a
               class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
               href="addFunds.html"
-              >Add Credits</a
             >
+              Add Credits
+            </a>
           </li>
           <li>
             <a
               class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
               href="user.html"
-              >My Profile</a
             >
+              My Profile
+            </a>
           </li>
           <li>
             <a
               class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
               data-bs-toggle="modal"
               href="#logoutModal"
-              >Logout</a
             >
+              Logout
+            </a>
           </li>
         </ul>
       </div>

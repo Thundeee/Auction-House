@@ -13,7 +13,7 @@ export async function bidListing(amount, id) {
     console.log(response.ok);
 
     if (!response.ok) {
-      document.querySelector(".errorResponseSingle").innerHTML = json.errors[0].message;
+      document.querySelector(".errorFront").innerHTML = json.errors[0].message;
       
       throw new Error(json.errors[0].message);
     }

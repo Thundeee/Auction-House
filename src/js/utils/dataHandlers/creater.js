@@ -59,6 +59,7 @@ image.addEventListener('input', () => {
         }
 
         const dato = new Date(endDate)
+        
         if (dato.getTime() < new Date().getTime()) {
             document.querySelector(".errorResponseCreate").innerHTML = ("Please select a date in the future")
             return;
@@ -66,7 +67,7 @@ image.addEventListener('input', () => {
             
 
         
-       await calls.createListing(title, description, media, endDate)
+       await calls.createListing(title, description, media, dato)
       })
 
 }

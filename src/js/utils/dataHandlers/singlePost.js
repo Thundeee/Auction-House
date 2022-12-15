@@ -1,40 +1,30 @@
 import * as calls from '../../api/apiCalls.js'
 import * as utils from '../utils.js'
 if (window.location.href.match(/auction.html/)) {
-    console.log("auction.html")
+  console.log('auction.html')
 
-let id = window.location.href.split("?")[1];
-console.log(id)
+  let id = window.location.href.split('?')[1]
+  console.log(id)
 
-const json = await calls.singleListing(id);
+  const json = await calls.singleListing(id)
 
-if (json == undefined) {
-    throw new Error();
+  if (json == undefined) {
+    throw new Error()
   }
 
+  singlePostHandler(json)
+}
 
-singlePostHandler(json);
+function singlePostHandler(post) {
+  console.log(post)
+  let container = document.querySelector('.singlePostContainer')
 
-    }
+  let bid = utils.bidHandler(post.bids)
 
-
-
-
-    function singlePostHandler(post) {
-        console.log(post)
-        let container = document.querySelector(".singlePostContainer")
-
-
-
-        let bid = utils.bidHandler(post.bids)
-
-
-        container.innerHTML = `
+  container.innerHTML = `
         <div class="text-white">
         <h1 class="text-white text-center mt-4">${post.title}</h1>
-            <div class="card-subtitle text-muted m-1">By: ${
-              post.seller.name
-            }</div>
+            <div class="card-subtitle text-muted m-1">By: ${post.seller.name}</div>
             <div class="d-flex flex-column flex-xl-row m-1">
             <div id="carouselSingle" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -84,35 +74,32 @@ singlePostHandler(json);
         </div>
         </div>
         </div>
-        `;
+        `
 
-        utils.carousel(post.media);
+  utils.carousel(post.media)
 
+  //bid on item listener
+  document
+    .querySelector('.bidForm')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault()
+      utils.bidOnItemHandler(event.target.elements.amount.value, post.id)
+    })
 
-//bid on item listener
-document.querySelector(".bidForm").addEventListener("submit", async (event) => {
-event.preventDefault();
-utils.bidOnItemHandler(event.target.elements.amount.value, post.id);
-})
+  //bid history stuff
+  let bids = document.querySelector('.bids')
+  for (let i = 0; i < post.bids.length; i++) {
+    let li = document.createElement('li')
 
-//bid history stuff
-        let bids = document.querySelector(".bids")
-        for (let i = 0; i < post.bids.length; i++) {
-            let li = document.createElement("li")
-
-            li.innerHTML = `
+    li.innerHTML = `
             <li class="list-group-item">${post.bids[i].amount} Credit(s) - ${post.bids[i].bidderName}</li>
             `
-            bids.appendChild(li)
-        }
-        if (bids.getElementsByTagName("li").length == 0) {
-            let li = document.createElement("li")
-            li.innerHTML = "No bids yet."
-            bids.appendChild(li)
-
-            
-        }
-        utils.countdownHandler();
-    }
-
-
+    bids.appendChild(li)
+  }
+  if (bids.getElementsByTagName('li').length == 0) {
+    let li = document.createElement('li')
+    li.innerHTML = 'No bids yet.'
+    bids.appendChild(li)
+  }
+  utils.countdownHandler()
+}
