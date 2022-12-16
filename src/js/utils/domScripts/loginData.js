@@ -7,7 +7,7 @@ import * as utils from '../utils.js'
 export async function domManip() {
   if (localStorage.getItem('username')) {
     await calls.singleProfile(localStorage.getItem('username'))
-    document.querySelector('#profileBtn').href = `/user.html?${localStorage.getItem('username')}`;
+    document.querySelector('#profileBtn').href = `user.html?${localStorage.getItem('username')}`;
   }
 
   if (localStorage.getItem('credits')) {
