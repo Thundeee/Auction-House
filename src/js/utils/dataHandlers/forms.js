@@ -69,6 +69,8 @@ let logOutHandler = logOutButton.addEventListener('click', () => {
  */
 async function avatarChange(avatar) {
   if (!/.*\.(jpeg|jpg|gif|png)/i.test(avatar)) {
+    document.querySelector('.errorAvatar').innerHTML =
+      'Please input a valid image URL. (jpeg, jpg, gif, png)'
     return
   }
   console.log('funka')

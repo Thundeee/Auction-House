@@ -24,8 +24,7 @@ export async function updateAvatar(avatar) {
     }
     console.log('test')
   } catch (error) {
-    document.querySelector('.errorAvatar').innerHTML =
-      error + ' Please refresh the page and try again.'
+    document.querySelector('.errorAvatar').innerHTML = error
     console.log(error)
   }
 }

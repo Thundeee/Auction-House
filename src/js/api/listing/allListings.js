@@ -14,15 +14,16 @@ export async function allListings() {
     if (!response.ok) {
       if (response.status === 429) {
         console.log('Too many requests')
-        document.querySelector('.errorFront').innerHTML =
-          'Too many requests to the server, please try again later'
-        throw new Error('Too many requests')
+        throw new Error('Too many requests please try again later')
       }
       throw new Error(json.errors[0].message)
     }
 
     return json
   } catch (error) {
+    document.querySelector('.errorFront').innerHTML = error
     console.log(error)
+    //removes loading animation
+    document.querySelector('#container').innerHTML = ''
   }
 }
