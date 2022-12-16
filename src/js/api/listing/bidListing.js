@@ -1,8 +1,11 @@
 import { POST } from "../requests.js";
-
-// BAD REQUEST
-
-export async function bidListing(id, amount) {
+/**
+ * @description bids on a auction
+ * @param {Number} amount 
+ * @param {String} id 
+ *
+ */
+export async function bidListing(amount, id) {
   try {
     const { json, response } = await POST({
       url: `/listings/${id}/bids`,
@@ -15,11 +18,20 @@ export async function bidListing(id, amount) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      if (response.status === 429) {
+        console.log("Too many requests")
+        document.querySelector(".errorFront").innerHTML = ("Too many requests to the server, please try again later")
+        throw new Error("Too many requests");
+      }
+      document.querySelector(".errorFront").innerHTML = json.errors[0].message;
+      
+      throw new Error(json.errors[0].message);
     }
     console.log(` ${amount} bidded on auciton ${id}!`);
-    return;
+
+    return
   } catch (error) {
     console.log(error);
+    return error;
   }
 }

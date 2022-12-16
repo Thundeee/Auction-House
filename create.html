@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#431c91" />
+    <meta
+      name="description"
+      content="Bergen Auction House is a community run auction site where you can buy, sell and discover anything you can think of!"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/css/stylesheet.css" />
     <script
@@ -44,16 +49,17 @@
               role="search"
               class="col-12 text-white bg-black d-flex"
               style="opacity: 0.7;"
+              id="searchForm"
             >
               <input
                 type="text"
                 class="text-white col-11 bg-black border-0 outlineRemover p-2"
                 placeholder="Search for an auction..."
               />
-              <i
-                class="bi bi-search col-1 d-flex justify-content-end align-items-center pe-2"
+              <button type="submit" name="search" class="btn col-1 d-flex justify-content-end align-items-center pe-2"><i
+                class="bi bi-search d-flex justify-content-end pe-2 text-white"
                 type="submit"
-              ></i>
+              ></i></button>
             </form>
           </div>
           <div
@@ -75,16 +81,16 @@
                 WALLET: 0
               </p>
             </a>
-<div id="loginButtonDiv">
-            <button
-              type="button"
-              class="btn btn-secondary p-3"
-              data-bs-toggle="modal"
-              data-bs-target="#loginModal"
-            >
-              Login
-            </button>
-        </div>
+            <div id="loginButtonDiv">
+              <button
+                type="button"
+                class="btn btn-secondary p-3"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -95,62 +101,64 @@
         <div class="row d-flex">
           <div class="col-12">
             <h1 class="text-white text-center mt-4">Create Auction</h1>
-            <h3 class="text-danger text-center " id="createErros"></h3>
+            <h2 class="text-danger text-center" id="createErros"></h2>
 
-          <div class="bg-secondary col-6 mx-auto">
-          <form class="createForm m-3">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                placeholder="Enter title"
-                required
-              />
+            <div class="card bg-secondary col-6 mx-auto">
+              <form class="createForm m-3">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="Enter title"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    rows="3"
+                    placeholder="Enter description"
+                    style="resize: none;"
+                  ></textarea>
+                </div>
+
+                <div class="form-group mediaLine">
+                  <label for="media">Media (Optional)</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="media"
+                    title="Media links will be automatically embedded if accepted."
+                    placeholder="Enter media (must be a link)"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="endsAt">Ends at</label>
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="endsAt"
+                    min="2022-12-09T00:00"
+                    max="2100-01-01T00:00"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary my-3">
+                  Post Auction!
+                </button>
+              </form>
+              <h2
+                class="errorResponseCreate text-danger text-center col-12"
+              ></h2>
+              <h2
+                class="positiveResponseCreate text-success text-center col-12"
+              ></h2>
             </div>
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea
-                class="form-control"
-                id="description"
-                rows="3"
-                placeholder="Enter description"
-                style="resize: none;"
-              ></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="media">Media</label>         
-              <input
-                type="url"
-                class="form-control"
-                id="media"
-                placeholder="Enter media (must be a link)"
-              />
-
-            </div>
-            <div class="form-group">
-              <label for="endsAt">Ends at</label>
-              <input
-                type="datetime-local"
-                class="form-control"
-                id="endsAt"
-                min="2022-12-09T00:00"
-                max="2100-01-01T00:00"
-                required
-              />
-            </div>
-            <button type="submit" class="btn btn-primary my-3">Post Auction!</button>
-            
-          </form>
-</div>
-<h3 class="text-success text-center" id="createSuccesss"></h3>
-
-
-
-
-
+            <h3 class="text-success text-center" id="createSuccesss"></h3>
           </div>
         </div>
       </div>
@@ -162,11 +170,11 @@
       <div class="container">
         <div class="row">
           <div class="col-12 m-3">
-            <h5 class="text-white text-center">
+            <h4 class="text-white text-center">
               Bergen Auction House
               <br />
               @2022
-            </h5>
+            </h4>
           </div>
         </div>
       </div>
@@ -174,215 +182,263 @@
 
     <script type="module" src="./src/js/index.js" defer></script>
 
+    <!-- Modal login -->
 
-                <!-- Modal login -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      aria-hidden="true"
+      aria-labelledby="loginModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="loginForm">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Enter your Noroff email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">
+                Login
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="errorResponseLogin text-danger text-center col-12"></p>
+            <button
+              class="btn btn-link float-end"
+              data-bs-target="#registerModal"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Don't have an account? Register here!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                <div
-                class="modal fade"
-                id="loginModal"
-                aria-hidden="true"
-                aria-labelledby="loginModalLabel"
-                tabindex="-1"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="loginForm">
-                        <div class="form-group">
-                          <label for="email">Email</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="loginEmail"
-                            placeholder="Enter your Noroff email"
-                            autocomplete="email"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Password</label>
-                          <input
-                            type="password"
-                            class="form-control"
-                            id="loginPassword"
-                            placeholder="Enter your password"
-                            autocomplete="current-password"
-                            required
-                          />
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-2">
-                          Login
-                        </button>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <p
-                        class="errorResponseLogin text-danger text-center col-12"
-                      ></p>
-                      <button
-                        class="btn btn-link float-end"
-                        data-bs-target="#registerModal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                      >
-                        Don't have an account? Register here!
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <!-- Modal register -->
-  
-              <div
-                class="modal fade"
-                id="registerModal"
-                aria-hidden="true"
-                aria-labelledby="registerModalLabel"
-                tabindex="-1"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="registerModalLabel">
-                        Register
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="registerForm">
-                        <div class="form-group">
-                          <label for="username">Username</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="registerUsername"
-                            placeholder="Enter your username"
-                            autocomplete="username"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Email</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="registerEmail"
-                            placeholder="Enter your Noroff email"
-                            autocomplete="email"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="username">Password</label>
-                          <input
-                            type="password"
-                            class="form-control"
-                            id="registerPassword"
-                            placeholder="Enter your password"
-                            autocomplete="new-password"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Avatar (Optional)</label>
-                          <input
-                            type="url"
-                            class="form-control"
-                            id="registerAvatar"
-                            placeholder="add a profile picture (must be a link)"
-                          />
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-2">
-                          Register
-                        </button>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <p
-                      class="positiveResponseRegister text-success text-center col-12"
-                    ></p>
-                      <p
-                        class="errorResponseRegister text-danger text-center col-12"
-                      ></p>
-                      <button
-                        class="btn btn-link float-end"
-                        id="goToLogin"
-                        data-bs-target="#loginModal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                      >
-                        Already have an account? Login here!
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <!-- Modal logout -->
-              <div
-                class="modal fade"
-                id="logoutModal"
-                tabindex="-1"
-                aria-labelledby="logoutModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      Are you sure you want to logout?
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-danger"  id="logout">
-                        Logout
-                      </button>
-                      <button type="button" class="btn btn-primary"  id="cancel">
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- Modal register -->
 
-
-              <!-- offcanvas -->
-              <div class="offcanvas offcanvas-end text-bg-light" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title ps-2" id="canvas-title">Menu</h5>
-                  <button type="button" class="btn-close invert" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body mt-2">
-                  <ul class="text-secondary list-group">
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="index.html">Home</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="create.html">Create Auction</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="addFunds.html">Add Credits</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" href="user.html">My Profile</a></li>
-                    <li><a class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2" data-bs-toggle="modal" href="#logoutModal">Logout</a></li>
-                  </ul>
-                </div>
+    <div
+      class="modal fade"
+      id="registerModal"
+      aria-hidden="true"
+      aria-labelledby="registerModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">
+              Register
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="registerForm">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerUsername"
+                  placeholder="Enter your username"
+                  autocomplete="username"
+                  required
+                />
               </div>
+              <div class="form-group">
+                <label for="password">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="registerEmail"
+                  placeholder="Enter your Noroff email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="username">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  placeholder="Enter your password"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Avatar (Optional)</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="registerAvatar"
+                  placeholder="add a profile picture (must be a link)"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">
+                Register
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p
+              class="positiveResponseRegister text-success text-center col-12"
+            ></p>
+            <p class="errorResponseRegister text-danger text-center col-12"></p>
+            <button
+              class="btn btn-link float-end"
+              id="goToLogin"
+              data-bs-target="#loginModal"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Already have an account? Login here!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal logout -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to logout?
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" id="logout">
+              Logout
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="cancel"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-end text-bg-light"
+      data-bs-scroll="true"
+      tabindex="-1"
+      id="offcanvas"
+      aria-labelledby="offcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title ps-2" id="canvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close invert"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body mt-2">
+        <ul class="text-secondary list-group">
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="index.html"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="create.html"
+            >
+              Create Auction
+            </a>
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              href="addFunds.html"
+            >
+              Add Credits
+            </a>
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              id="profileBtn"
+              href="user.html"
+            >
+              My Profile
+            </a>
+          </li>
+          <li>
+            <a
+              class="list-group-item list-group-item-action text-decoration-none bg-secondary rounded-5 text-center mt-2"
+              data-bs-toggle="modal"
+              href="#logoutModal"
+            >
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,12 +1,13 @@
 {
   "name": "auction-house",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "Auction House using noroff API",
   "main": "index.js",
   "scripts": {
     "test": "test",
     "build": "sass src/scss/index.scss:dist/css/stylesheet.css",
-    "devMode": "sass --watch src/scss/index.scss:dist/css/stylesheet.css"
+    "devMode": "sass --watch src/scss/index.scss:dist/css/stylesheet.css",
+    "startServer": "live-server --port=5500"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "sass": "^1.56.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.1.0"
   }
 }

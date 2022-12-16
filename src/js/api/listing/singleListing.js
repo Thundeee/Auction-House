@@ -1,5 +1,9 @@
 import { GET } from "../requests.js";
-
+/**
+ * @description gets a single specified auction from api
+ * @param {String} id 
+ * @returns auction info
+ */
 export async function singleListing(id) {
   try {
     const { json, response } = await GET({
@@ -11,8 +15,14 @@ export async function singleListing(id) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      if (response.status === 429) {
+        console.log("Too many requests")
+        throw new Error("Too many requests");
+      }
+      throw new Error(json.errors[0].message);
     }
+
+    return json;
   } catch (error) {
     console.log(error);
   }

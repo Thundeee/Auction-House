@@ -1,5 +1,8 @@
 import { PUT } from "../requests.js";
-
+/**
+ * @description updates avatar for user
+ * @param {URL} avatar 
+ */
 export async function updateAvatar(avatar) {
   try {
     const { json, response } = await PUT({
@@ -13,10 +16,15 @@ export async function updateAvatar(avatar) {
     console.log(response.ok);
 
     if (!response.ok) {
-      throw new Error();
+      if (response.status === 429) {
+        console.log("Too many requests")
+        throw new Error("Too many requests");
+      }
+      throw new Error(json.errors[0].message);
     }
     console.log("test");
   } catch (error) {
+    document.querySelector('.errorAvatar').innerHTML = error + " Please refresh the page and try again."
     console.log(error);
   }
 }
