@@ -22,7 +22,9 @@ export async function singleProfile(name) {
       throw new Error(json.errors[0].message);
     }
     if (name == localStorage.getItem("username")) {
+      localStorage.setItem("username", json.name);
       localStorage.setItem("credits", json.credits);
+      localStorage.setItem("avatar", json.avatar);
     }
   } catch (error) {
     console.log(error);

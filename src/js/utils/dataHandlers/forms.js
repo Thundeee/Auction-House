@@ -62,4 +62,19 @@ let logOutHandler = logOutButton.addEventListener('click', () => {
   calls.logOut()
 })
 
-export { loginHandler, registerHandler, logOutHandler }
+
+/**
+ * @description Handles the avatar change on the profile page.
+ * @param {URL} avatar 
+ *  
+ */
+async function avatarChange(avatar) {
+    if (!/.*\.(jpeg|jpg|gif|png)/i.test(avatar)) {
+      return;
+    }  
+  console.log("funka")
+ await calls.updateAvatar(avatar)
+ await calls.singleProfile(localStorage.getItem('username'))
+ utils.domManip()
+}
+export { loginHandler, registerHandler, logOutHandler, avatarChange }
