@@ -6,12 +6,9 @@ import * as calls from '../../api/apiCalls.js'
  * @returns - returns the text for the html and the amount
  */
 export function bidHandler(bidList) {
-  console.log(bidList)
   let bid
 
   const max = Math.max(...bidList.map((x) => x.amount), 0)
-  console.log(max)
-
   if (bidList.length > 0) {
     bid = 'Leading bid: ' + max
     return [bid, max]
@@ -74,8 +71,6 @@ export function quickBid() {
       document.querySelector('.quickBuy').innerHTML =
         'Are you sure u want to bid: <b>' + bid + '</b> credit(s) on this item?'
       quickButtonsModal.addEventListener('click', async function (event) {
-        console.log(bid)
-        console.log(id)
         bidOnItemHandler(bid, id)
       })
     })
@@ -111,4 +106,33 @@ export async function bidOnItemHandler(amount, id) {
   document.querySelector(
     '.bidSuccess',
   ).innerHTML = `Bid of ${amount} credit(s) placed!`
+}
+
+export async function profileHandler() {
+  if (/user.html/i.test(window.location.href)) {
+    if (!localStorage.getItem('accessToken')) {
+      window.location.href = 'index.html'
+      return
+    }
+    if (
+      localStorage.getItem('username') === window.location.search.substring(1)
+    ) {
+      utils.userpageDOM(localStorage.getItem('avatar'))
+    } else {
+      let user = await calls.singleProfile(window.location.search.substring(1))
+      if (/error/i.test(user)) {
+        document.querySelector('.textProfile').innerHTML = user
+        document.querySelector('.textProfile').classList.add('text-danger')
+        document.querySelector('.avatarPlaceholder').style.cursor = 'default'
+        document
+          .querySelector('.avatarPlaceholder')
+          .removeAttribute('data-bs-toggle')
+        document
+          .querySelector('.avatarPlaceholder')
+          .removeAttribute('data-bs-target')
+        return
+      }
+      utils.userpageDOM(user.avatar, user.name)
+    }
+  }
 }

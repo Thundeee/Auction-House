@@ -41,28 +41,20 @@ export async function domManip() {
     document.querySelector('#bid').classList.remove('disabled')
     document.querySelector('.notLoggedIn').innerHTML = ''
   }
+}
+/**
+ * @description Manipulates the DOM if a user is on their own page
+ * @param {*} params
+ */
 
-  //avatar change stuff
-  if (
-    localStorage.getItem('accessToken') &&
-    document.querySelector('.avatarChange')
-  ) {
-    if (
-      (localStorage.getItem('avatar') &&
-        localStorage.getItem('avatar') === null) ||
-      localStorage.getItem('avatar') === ''
-    ) {
-      document.querySelector(
-        '.avatarPlaceholder',
-      ).src = `./assets/img/noImg.jpg`
-    } else {
-      document.querySelector(
-        '.avatarPlaceholder',
-      ).src = `${localStorage.getItem('avatar')}`
-      document.querySelector('#oldAvatar').value = `${localStorage.getItem(
-        'avatar',
-      )}`
-    }
+export function userpageDOM(userAvatar, name) {
+  if ((userAvatar && userAvatar === null) || userAvatar === '') {
+    document.querySelector('.avatarPlaceholder').src = `./assets/img/noImg.jpg`
+  } else {
+    document.querySelector('.avatarPlaceholder').src = userAvatar
+    document.querySelector('#oldAvatar').value = userAvatar
+  }
+  if (userAvatar === localStorage.getItem('avatar')) {
     document
       .querySelector('.AvatarForm')
       .addEventListener('submit', async (e) => {
@@ -71,5 +63,14 @@ export async function domManip() {
         console.log(avatar)
         utils.avatarChange(avatar)
       })
+  } else {
+    document.querySelector('.textProfile').innerHTML = name + "'s profile"
+    document.querySelector('.avatarPlaceholder').style.cursor = 'default'
+    document
+      .querySelector('.avatarPlaceholder')
+      .removeAttribute('data-bs-toggle')
+    document
+      .querySelector('.avatarPlaceholder')
+      .removeAttribute('data-bs-target')
   }
 }

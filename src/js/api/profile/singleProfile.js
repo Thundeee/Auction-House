@@ -26,7 +26,9 @@ export async function singleProfile(name) {
       localStorage.setItem('credits', json.credits)
       localStorage.setItem('avatar', json.avatar)
     }
+    return json;
   } catch (error) {
     console.log(error)
+    return error;
   }
 }
