@@ -2,8 +2,8 @@ import * as utils from '../utils.js'
 import * as calls from '../../api/apiCalls.js'
 /**
  * @description This function sorts bids by amount to find the highest bid and returns it.
- * @param {Array} bidList 
- * @returns - returns the text for the html and the amount 
+ * @param {Array} bidList
+ * @returns - returns the text for the html and the amount
  */
 export function bidHandler(bidList) {
   console.log(bidList)
@@ -23,7 +23,7 @@ export function bidHandler(bidList) {
 
 /**
  * @description Function that handles countdowns until expire date. Also sets interval to update every second.
- * 
+ *
  */
 export function countdownHandler() {
   let countdownTargets = document.querySelectorAll('#countdown')
@@ -60,7 +60,6 @@ export function countdownHandler() {
   }, 1000)
 }
 
-
 /**
  * @description Handles the quickbid option on the front page. makes a modal appear and then sends the bid to the bidOnItemHandler function.
  */
@@ -85,8 +84,8 @@ export function quickBid() {
 
 /**
  * @description function to handle bids from quickbid and normal bidding. Also updates the wallet after a bid is placed.
- * @param {String} amount 
- * @param {string} id 
+ * @param {String} amount
+ * @param {string} id
  */
 export async function bidOnItemHandler(amount, id) {
   console.log(amount)

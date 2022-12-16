@@ -7,7 +7,9 @@ import * as utils from '../utils.js'
 export async function domManip() {
   if (localStorage.getItem('username')) {
     await calls.singleProfile(localStorage.getItem('username'))
-    document.querySelector('#profileBtn').href = `user.html?${localStorage.getItem('username')}`;
+    document.querySelector(
+      '#profileBtn',
+    ).href = `user.html?${localStorage.getItem('username')}`
   }
 
   if (localStorage.getItem('credits')) {
@@ -26,8 +28,8 @@ export async function domManip() {
       'avatar',
     )}" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" alt="profile picture" style="cursor: pointer;"/>`
   } else if (
-    localStorage.getItem('avatar') &&
-      localStorage.getItem('avatar') === null ||
+    (localStorage.getItem('avatar') &&
+      localStorage.getItem('avatar') === null) ||
     localStorage.getItem('avatar') === ''
   ) {
     btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="./assets/img/noImg.jpg" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" alt="profile picture" style="cursor: pointer;"/>`
@@ -40,25 +42,34 @@ export async function domManip() {
     document.querySelector('.notLoggedIn').innerHTML = ''
   }
 
-
-
   //avatar change stuff
-if (localStorage.getItem('accessToken') && document.querySelector('.avatarChange')) {
-  if (localStorage.getItem('avatar') && localStorage.getItem('avatar') === null || localStorage.getItem('avatar') === '') {
-
-    document.querySelector('.avatarPlaceholder').src = `./assets/img/noImg.jpg`
-
-  } else {
-  document.querySelector('.avatarPlaceholder').src = `${localStorage.getItem("avatar")}`
-  document.querySelector('#oldAvatar').value = `${localStorage.getItem("avatar")}`
+  if (
+    localStorage.getItem('accessToken') &&
+    document.querySelector('.avatarChange')
+  ) {
+    if (
+      (localStorage.getItem('avatar') &&
+        localStorage.getItem('avatar') === null) ||
+      localStorage.getItem('avatar') === ''
+    ) {
+      document.querySelector(
+        '.avatarPlaceholder',
+      ).src = `./assets/img/noImg.jpg`
+    } else {
+      document.querySelector(
+        '.avatarPlaceholder',
+      ).src = `${localStorage.getItem('avatar')}`
+      document.querySelector('#oldAvatar').value = `${localStorage.getItem(
+        'avatar',
+      )}`
+    }
+    document
+      .querySelector('.AvatarForm')
+      .addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const avatar = document.querySelector('#newAvatar').value
+        console.log(avatar)
+        utils.avatarChange(avatar)
+      })
   }
-  document.querySelector('.AvatarForm').addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const avatar = document.querySelector('#newAvatar').value
-    console.log(avatar)
-    utils.avatarChange(avatar)
-  })
-  
-}
-
 }
