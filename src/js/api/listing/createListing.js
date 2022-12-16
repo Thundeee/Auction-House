@@ -15,8 +15,6 @@ export async function createListing(title, description, media, endsAt) {
       },
       body: { title, description, media, endsAt },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {

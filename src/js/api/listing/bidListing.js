@@ -14,8 +14,6 @@ export async function bidListing(amount, id) {
       },
       body: { amount },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -28,8 +26,6 @@ export async function bidListing(amount, id) {
 
       throw new Error(json.errors[0].message)
     }
-    console.log(` ${amount} bidded on auciton ${id}!`)
-
     return
   } catch (error) {
     console.log(error)

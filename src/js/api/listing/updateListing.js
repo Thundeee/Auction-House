@@ -15,8 +15,6 @@ export async function updateListing(id, title, description, media) {
       },
       body: { title, description, media },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {

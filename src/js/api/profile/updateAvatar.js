@@ -12,8 +12,6 @@ export async function updateAvatar(avatar) {
       },
       body: { avatar },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -22,7 +20,6 @@ export async function updateAvatar(avatar) {
       }
       throw new Error(json.errors[0].message)
     }
-    console.log('test')
   } catch (error) {
     document.querySelector('.errorAvatar').innerHTML = error
     console.log(error)

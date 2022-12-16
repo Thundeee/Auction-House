@@ -15,7 +15,6 @@ export async function initial() {
     window.location.pathname == '/Auction-House/'
   ) {
     const json = await calls.allListings()
-    console.log(json)
     if (json == undefined) {
       return
     }
@@ -121,7 +120,6 @@ function searcher(keyword) {
   ) {
   } else {
     //redirects to index.html with search query if not on index.html
-    console.log('redirect')
     window.location.href = `./index.html?${keyword}`
   }
   document.querySelector('.errorFront').innerHTML = ''
@@ -143,7 +141,6 @@ function searcher(keyword) {
       description.includes(keyword) ||
       seller.includes(keyword)
     ) {
-      console.log(1)
       postList[j] = data[i]
       j++
     }

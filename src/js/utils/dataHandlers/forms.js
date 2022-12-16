@@ -73,7 +73,6 @@ async function avatarChange(avatar) {
       'Please input a valid image URL. (jpeg, jpg, gif, png)'
     return
   }
-  console.log('funka')
   await calls.updateAvatar(avatar)
   await calls.singleProfile(localStorage.getItem('username'))
   utils.domManip()

@@ -12,7 +12,6 @@ export async function deleteListing(id) {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {

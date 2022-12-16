@@ -21,7 +21,6 @@ const makeRequest = async ({ url, body, headers = {}, method }) => {
     },
     body: JSON.stringify(body),
   })
-  console.log(response)
   if (method == 'DELETE') {
     return response
   }

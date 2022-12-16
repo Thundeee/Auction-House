@@ -83,20 +83,14 @@ export function quickBid() {
  * @param {string} id
  */
 export async function bidOnItemHandler(amount, id) {
-  console.log(amount)
-  console.log(id)
   amount = parseInt(amount)
   if (!localStorage.getItem('accessToken')) {
-    console.log('not logged in')
     return
   }
   let check = await calls.bidListing(amount, id)
-  console.log(check)
   if (check) {
-    console.log('stopping')
     return
   }
-  console.log('hei')
   await calls.singleProfile(localStorage.getItem('username'))
   utils.domManip()
   if (document.querySelector('#bidSuccessModal')) {
@@ -107,7 +101,13 @@ export async function bidOnItemHandler(amount, id) {
     '.bidSuccess',
   ).innerHTML = `Bid of ${amount} credit(s) placed!`
 }
-
+/**
+ *
+ * @description Function that handles the profile page. If the user is not logged in it redirects to the index page.
+ *  If the user is logged in it checks if the user is on their own profile page or someone elses.
+ *  If it is their own profile page it loads their own profile page. If it is someone elses profile page it loads that persons profile page.
+ *  If the user is not found it displays an error message.
+ */
 export async function profileHandler() {
   if (/user.html/i.test(window.location.href)) {
     if (!localStorage.getItem('accessToken')) {

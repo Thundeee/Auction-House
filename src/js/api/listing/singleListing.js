@@ -10,8 +10,6 @@ export async function singleListing(id) {
       url: `/listings/${id}?_seller=true&_bids=true`,
       headers: {},
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {

@@ -11,8 +11,6 @@ export async function singleProfile(name) {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {
@@ -26,9 +24,9 @@ export async function singleProfile(name) {
       localStorage.setItem('credits', json.credits)
       localStorage.setItem('avatar', json.avatar)
     }
-    return json;
+    return json
   } catch (error) {
     console.log(error)
-    return error;
+    return error
   }
 }

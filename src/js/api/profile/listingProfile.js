@@ -11,8 +11,6 @@ export async function listingsProfile(name) {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
-    console.log(json)
-    console.log(response.ok)
 
     if (!response.ok) {
       if (response.status === 429) {

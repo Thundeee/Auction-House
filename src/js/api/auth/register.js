@@ -12,8 +12,6 @@ export async function register(name, email, password, avatar) {
       url: '/auth/register',
       body: { name, email, password, avatar },
     })
-    console.log(json)
-    console.log(response.ok)
     if (!response.ok) {
       if (response.status === 429) {
         console.log('Too many requests')

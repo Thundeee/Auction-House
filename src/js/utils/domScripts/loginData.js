@@ -23,7 +23,6 @@ export async function domManip() {
     localStorage.getItem('avatar') &&
     localStorage.getItem('avatar') != 'null'
   ) {
-    console.log('avatar exists')
     btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="${localStorage.getItem(
       'avatar',
     )}" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" alt="profile picture" style="cursor: pointer;"/>`
@@ -33,8 +32,6 @@ export async function domManip() {
     localStorage.getItem('avatar') === ''
   ) {
     btn.innerHTML = `<img class="rounded-circle img-fluid pfp" src="./assets/img/noImg.jpg" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" alt="profile picture" style="cursor: pointer;"/>`
-  } else {
-    console.log('avatar does not exist')
   }
 
   if (localStorage.getItem('accessToken') && document.querySelector('#bid')) {
@@ -60,7 +57,6 @@ export function userpageDOM(userAvatar, name) {
       .addEventListener('submit', async (e) => {
         e.preventDefault()
         const avatar = document.querySelector('#newAvatar').value
-        console.log(avatar)
         utils.avatarChange(avatar)
       })
   } else {
