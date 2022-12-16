@@ -23,7 +23,7 @@ function singlePostHandler(post) {
   let seller;
 
   if (localStorage.getItem("accessToken")) {
-    seller = `<a href ="/user.html?${post.seller.name}" class="m-1 text-white author">By: ${post.seller.name}</a>`;
+    seller = `<a href ="./user.html?${post.seller.name}" class="m-1 text-white author">By: ${post.seller.name}</a>`;
   } else {
     seller = `<div class="m-1 text-white">By: ${post.seller.name}</div>`;
   }
