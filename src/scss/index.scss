@@ -1,0 +1,79 @@
+$primary: #431c91;
+$secondary: #deb540;
+$success: #198754;
+$danger: #dc3545;
+$text: #000000;
+$light: #55329c;
+
+.offcanvas {
+  --bs-offcanvas-width: 250px !important;
+  --bs-offcanvas-padding-x: 2rem !important;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif !important;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif !important;
+}
+
+@media (max-width: 767px) {
+  .logoSmall {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pfp {
+  width: 100px !important;
+  height: 100px !important;
+  object-position: center;
+  object-fit: cover;
+}
+
+.imgAll {
+  width: 150px !important;
+  height: 150px !important;
+  object-fit: cover !important;
+}
+
+.imgSolo {
+  height: 50vh !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+li:hover {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #000000 !important;
+  text-decoration: underline !important;
+}
+
+.outlineRemover {
+  outline: 0px !important;
+}
+
+.frontCards {
+  min-width: fit-content;
+}
+
+.author:hover {
+  color: $secondary !important;
+  text-decoration: underline !important;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
