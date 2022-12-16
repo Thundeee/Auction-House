@@ -11,7 +11,7 @@ $light: #55329c;
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif !important;
+  font-family: "Noto Sans", sans-serif !important;
   overflow-x: hidden;
 }
 
@@ -21,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Merriweather', serif !important;
+  font-family: "Merriweather", serif !important;
 }
 
 @media (max-width: 767px) {
@@ -71,4 +71,9 @@ a:hover {
   min-width: fit-content;
 }
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
+.author:hover {
+  color: $secondary !important;
+  text-decoration: underline !important;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
