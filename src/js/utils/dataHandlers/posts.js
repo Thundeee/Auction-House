@@ -4,7 +4,7 @@ import * as utils from '../utils.js'
 let data
 /**
  * @description This function is the main function that is called when the page is loaded. It calls the api and then calls the postMaker function to make the cards.
- * 
+ *
  */
 export async function initial() {
   //have to put in extra here for github pages
@@ -15,7 +15,6 @@ export async function initial() {
     window.location.pathname == '/Auction-House/'
   ) {
     const json = await calls.allListings()
-    console.log(json)
     if (json == undefined) {
       return
     }
@@ -110,7 +109,7 @@ searchBar.addEventListener('submit', async function (event) {
 /**
  * @description This function searches the data for the search query and then calls the postMaker function to make the cards.
  * @param {String} keyword - the search query
- * 
+ *
  */
 function searcher(keyword) {
   if (
@@ -121,7 +120,6 @@ function searcher(keyword) {
   ) {
   } else {
     //redirects to index.html with search query if not on index.html
-    console.log('redirect')
     window.location.href = `./index.html?${keyword}`
   }
   document.querySelector('.errorFront').innerHTML = ''
@@ -143,7 +141,6 @@ function searcher(keyword) {
       description.includes(keyword) ||
       seller.includes(keyword)
     ) {
-      console.log(1)
       postList[j] = data[i]
       j++
     }

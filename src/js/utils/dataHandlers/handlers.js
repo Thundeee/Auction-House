@@ -2,16 +2,13 @@ import * as utils from '../utils.js'
 import * as calls from '../../api/apiCalls.js'
 /**
  * @description This function sorts bids by amount to find the highest bid and returns it.
- * @param {Array} bidList 
- * @returns - returns the text for the html and the amount 
+ * @param {Array} bidList
+ * @returns - returns the text for the html and the amount
  */
 export function bidHandler(bidList) {
-  console.log(bidList)
   let bid
 
   const max = Math.max(...bidList.map((x) => x.amount), 0)
-  console.log(max)
-
   if (bidList.length > 0) {
     bid = 'Leading bid: ' + max
     return [bid, max]
@@ -23,7 +20,7 @@ export function bidHandler(bidList) {
 
 /**
  * @description Function that handles countdowns until expire date. Also sets interval to update every second.
- * 
+ *
  */
 export function countdownHandler() {
   let countdownTargets = document.querySelectorAll('#countdown')
@@ -60,7 +57,6 @@ export function countdownHandler() {
   }, 1000)
 }
 
-
 /**
  * @description Handles the quickbid option on the front page. makes a modal appear and then sends the bid to the bidOnItemHandler function.
  */
@@ -75,8 +71,6 @@ export function quickBid() {
       document.querySelector('.quickBuy').innerHTML =
         'Are you sure u want to bid: <b>' + bid + '</b> credit(s) on this item?'
       quickButtonsModal.addEventListener('click', async function (event) {
-        console.log(bid)
-        console.log(id)
         bidOnItemHandler(bid, id)
       })
     })
@@ -85,24 +79,18 @@ export function quickBid() {
 
 /**
  * @description function to handle bids from quickbid and normal bidding. Also updates the wallet after a bid is placed.
- * @param {String} amount 
- * @param {string} id 
+ * @param {String} amount
+ * @param {string} id
  */
 export async function bidOnItemHandler(amount, id) {
-  console.log(amount)
-  console.log(id)
   amount = parseInt(amount)
   if (!localStorage.getItem('accessToken')) {
-    console.log('not logged in')
     return
   }
   let check = await calls.bidListing(amount, id)
-  console.log(check)
   if (check) {
-    console.log('stopping')
     return
   }
-  console.log('hei')
   await calls.singleProfile(localStorage.getItem('username'))
   utils.domManip()
   if (document.querySelector('#bidSuccessModal')) {
@@ -112,4 +100,39 @@ export async function bidOnItemHandler(amount, id) {
   document.querySelector(
     '.bidSuccess',
   ).innerHTML = `Bid of ${amount} credit(s) placed!`
+}
+/**
+ *
+ * @description Function that handles the profile page. If the user is not logged in it redirects to the index page.
+ *  If the user is logged in it checks if the user is on their own profile page or someone elses.
+ *  If it is their own profile page it loads their own profile page. If it is someone elses profile page it loads that persons profile page.
+ *  If the user is not found it displays an error message.
+ */
+export async function profileHandler() {
+  if (/user.html/i.test(window.location.href)) {
+    if (!localStorage.getItem('accessToken')) {
+      window.location.href = 'index.html'
+      return
+    }
+    if (
+      localStorage.getItem('username') === window.location.search.substring(1)
+    ) {
+      utils.userpageDOM(localStorage.getItem('avatar'))
+    } else {
+      let user = await calls.singleProfile(window.location.search.substring(1))
+      if (/error/i.test(user)) {
+        document.querySelector('.textProfile').innerHTML = user
+        document.querySelector('.textProfile').classList.add('text-danger')
+        document.querySelector('.avatarPlaceholder').style.cursor = 'default'
+        document
+          .querySelector('.avatarPlaceholder')
+          .removeAttribute('data-bs-toggle')
+        document
+          .querySelector('.avatarPlaceholder')
+          .removeAttribute('data-bs-target')
+        return
+      }
+      utils.userpageDOM(user.avatar, user.name)
+    }
+  }
 }

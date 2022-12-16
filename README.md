@@ -49,4 +49,4 @@ https://thundeee.github.io/Auction-House/
 
 # Planned features
 ## Extra
-Extra things i had plans for is displayed on the Kanban Board.
+Extra things i had plans for is displayed on the Kanban Board. Most of these were features I wanted to implement but either got stuck on or didn't have time for.

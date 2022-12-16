@@ -1,10 +1,7 @@
 import * as calls from '../../api/apiCalls.js'
 import * as utils from '../utils.js'
 if (window.location.href.match(/auction.html/)) {
-  console.log('auction.html')
-
   let id = window.location.href.split('?')[1]
-  console.log(id)
 
   const json = await calls.singleListing(id)
 
@@ -19,7 +16,6 @@ if (window.location.href.match(/auction.html/)) {
  * @param {Object} post - The post object from the API
  */
 function singlePostHandler(post) {
-  console.log(post)
   let container = document.querySelector('.singlePostContainer')
 
   let bid = utils.bidHandler(post.bids)

@@ -3,3 +3,4 @@ import * as utils from './utils/utils.js'
 
 utils.domManip()
 utils.initial()
+utils.profileHandler()
